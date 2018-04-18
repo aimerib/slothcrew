@@ -43,3 +43,4 @@ document.addEventListener('DOMContentLoaded', function () {
     pantoneBtn.classList.toggle("pantoneBtn--regular");
     pantoneBtn.innerHTML = (pantoneBtn.innerHTML === "Pantone Ultra Violet") ? "Regular Style" : "Pantone Ultra Violet";
   }
+  document.querySelector("#pantoneBtn").addEventListener("touchend", changeStyle, false);
