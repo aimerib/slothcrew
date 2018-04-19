@@ -18,8 +18,10 @@ body {
 .navbar-slant {
   transform: rotate(-1deg);
   z-index: 5;
-  height: 100px;
+  height: 130px;
   margin-left: -2px;
+  margin-top: -30px;
+  padding-top: 30px;
   min-width: calc(100vw + 2px);
 }
 
@@ -58,7 +60,7 @@ body {
   }
 
 .main-content-container {
-  margin-top: -20px;
+
   min-height: calc(100vh - 250px) ;
   padding: 10px 10px 0 10px;
 }
@@ -111,4 +113,20 @@ svg {
 }
 .pantoneBtn--regular:hover{
   background-color: hotpink;  
+}
+#home { 
+  padding-top: 120px; 
+  margin-top: -120px;
+}
+#portfolio { 
+  padding-top: 120px; 
+  margin-top: -120px;
+}
+#about { 
+  padding-top: 120px; 
+  margin-top: -120px;
+}
+#contact { 
+  padding-top: 120px; 
+  margin-top: -120px;
 }
