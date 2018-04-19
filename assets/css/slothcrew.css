@@ -2,7 +2,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: #ec407a;
+    background-color: #5F4B8B;
   }
 
   main {
@@ -10,10 +10,11 @@ body {
   }
       
 .background-color-regular {
-    background-color: #ec407a;
-}
-.background-color-pantone {
+    
     background-color: #5F4B8B;
+}
+.background-color-hotpink {
+  background-color: #ec407a;
 }
 .navbar-slant {
   transform: rotate(-1deg);
@@ -46,14 +47,15 @@ body {
 }
 .navbar-item-regular-style {
   background-color: yellow;
-  color: #ec407a;
+  color: #5F4B8B;
+  
   margin: 2px;
   font-size: 1.5rem;
   font-family: "Bangers", cursive;
 }
-.navbar-item-pantone-style {
+.navbar-item-hotpink-style {
     background-color: yellow;
-    color: #5F4B8B;
+    color: #ec407a;
     margin: 2px;
     font-size: 1.5rem;
     font-family: "Bangers", cursive;
@@ -84,10 +86,11 @@ svg {
 }
 
 .footer-background {
-  background-color: #ec407a !important;
-}
-.footer-background--pantone {
   background-color: #5F4B8B!important;
+}
+.footer-background--hotpink {
+  
+  background-color: #ec407a !important;
 }
 
 
@@ -99,21 +102,23 @@ svg {
 }
 
 .pantoneBtn {
-  background-color: #5F4B8B;
+  background-color: #ec407a;
   font-weight: bold;
   color: yellow;
   margin-bottom: 25px;
 }
 .pantoneBtn:hover {
-  background-color: darkorchid;
+  background-color: hotpink;  
+  
   color: yellow;
 }
 
 .pantoneBtn--regular {
-  background-color: #ec407a;
+  
+  background-color: #5F4B8B;
 }
 .pantoneBtn--regular:hover{
-  background-color: hotpink;  
+  background-color: darkorchid;
 }
 #home { 
   padding-top: 120px; 

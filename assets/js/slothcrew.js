@@ -38,14 +38,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const footerCopyrightHtml = document.querySelector(".footer-copyright");
     const pantoneBtn = document.querySelector("#pantoneBtn");
 
-    bodyHtml.classList.toggle("background-color-pantone");
-    navbarHtml.classList.toggle("background-color-pantone");
+    bodyHtml.classList.toggle("background-color-hotpink");
+    navbarHtml.classList.toggle("background-color-hotpink");
     for (item of navbarItemHtml){
-      item.classList.toggle("navbar-item-pantone-style");
+      item.classList.toggle("navbar-item-hotpink-style");
     }
-    footerHtml.classList.toggle("footer-background--pantone");
-    footerCopyrightHtml.classList.toggle("footer-background--pantone");
+    footerHtml.classList.toggle("footer-background--hotpink");
+    footerCopyrightHtml.classList.toggle("footer-background--hotpink");
     pantoneBtn.classList.toggle("pantoneBtn--regular");
-    pantoneBtn.innerHTML = (pantoneBtn.innerHTML === "Pantone Ultra Violet") ? "Regular Style" : "Pantone Ultra Violet";
     
   }
