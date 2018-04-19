@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Get all "navbar-burger" elements
     var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    let pantoneButton = document.querySelector("#pantoneBtn")
+    pantoneButton.addEventListener("touchend", changeStyle, false);
   
     // Check if there are any navbar burgers
     if ($navbarBurgers.length > 0) {
@@ -23,6 +25,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   
   });
+
+  function toggleMenu () {
+    document.querySelector('.navbar-burger').classList.toggle("is-active")
+    document.querySelector('.navbar-menu').classList.toggle("is-active")
+  }
   
   function changeStyle() {
     const bodyHtml = document.querySelector("body");
@@ -42,5 +49,5 @@ document.addEventListener('DOMContentLoaded', function () {
     footerCopyrightHtml.classList.toggle("footer-background--pantone");
     pantoneBtn.classList.toggle("pantoneBtn--regular");
     pantoneBtn.innerHTML = (pantoneBtn.innerHTML === "Pantone Ultra Violet") ? "Regular Style" : "Pantone Ultra Violet";
+    
   }
-  document.querySelector("#pantoneBtn").addEventListener("touchend", changeStyle, false);
