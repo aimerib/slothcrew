@@ -164,4 +164,8 @@ svg {
 .input-field .prefix.active {
   color: #5F4B8B;
 }
+
+.contact-submit {
+  margin-top: 10px;
+}
      
