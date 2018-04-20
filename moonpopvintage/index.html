@@ -540,7 +540,7 @@
         var slider;
         document.getElementById("colorslider").value = parseInt("FF0066", 16);
         document.getElementById("Color").style.fill = "#FF0066";
-        document.getElementById('colorslider').addEventListener('change', function () {
+        document.getElementById('colorslider').addEventListener('input', function () {
             slider = document.getElementById('colorslider');
             document.getElementById("Color").style.fill = parseInt(slider.value).toString(16).padStart(6, "0");
             document.getElementById("selectedcolor").innerHTML = "#" + (parseInt(slider.value).toString(16).padStart(6, "0")).toUpperCase();
