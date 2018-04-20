@@ -543,7 +543,7 @@
         document.getElementById('colorslider').addEventListener('change', function () {
             slider = document.getElementById('colorslider');
             document.getElementById("Color").style.fill = parseInt(slider.value).toString(16).padStart(6, "0");
-            document.getElementById("selectedcolor").innerHTML = "'#" + (parseInt(slider.value).toString(16).padStart(6, "0")).toUpperCase() + "'";
+            document.getElementById("selectedcolor").innerHTML = "#" + (parseInt(slider.value).toString(16).padStart(6, "0")).toUpperCase();
         });
     </script>
 </body>
