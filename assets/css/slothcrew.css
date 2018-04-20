@@ -78,7 +78,7 @@ body {
 }
 
 .slothBranding {
-  color: yellow;
+  color: yellow !important;
 }
 
 svg {
@@ -101,25 +101,44 @@ svg {
   color: white !important;
 }
 
-.pantoneBtn {
-  background-color: #ec407a;
-  font-weight: bold;
+.theme-change-button-regular {
   color: yellow;
+  font-weight: bold;
   margin-bottom: 25px;
+  background-color: #ec407a;
 }
-.pantoneBtn:hover {
+.theme-change-button-regular:hover {
   background-color: hotpink;  
-  
+}
+
+.theme-change-button-toggled {
+  background-color: #5F4B8B;
+}
+
+.theme-change-button-toggled:hover {
+  background-color: darkorchid;
+}
+
+.slothcrew-button-regular {
+  background-color: #5F4B8B;
+  font-weight: bold;
+  color: yellow !important;
+}
+
+.slothcrew-button-regular:hover {
+  background-color: darkorchid;
   color: yellow;
 }
 
-.pantoneBtn--regular {
-  
-  background-color: #5F4B8B;
+.slothcrew-button-hotpink {
+  background-color: #ec407a;
 }
-.pantoneBtn--regular:hover{
-  background-color: darkorchid;
+
+.slothcrew-button-hotpink:hover {
+  background-color: hotpink;  
 }
+
+
 #home { 
   padding-top: 120px; 
   margin-top: -120px;

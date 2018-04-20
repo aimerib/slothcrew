@@ -25,30 +25,32 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function toggleMenu () {
-    document.querySelector('.navbar-burger').classList.toggle("is-active")
-    document.querySelector('.navbar-menu').classList.toggle("is-active")
+    document.querySelector('.navbar-burger').classList.toggle("is-active");
+    document.querySelector('.navbar-menu').classList.toggle("is-active");
   }
   
   function changeStyle() {
     const bodyHtml = document.querySelector("body");
-    const navbarHtml = document.querySelector("#slothcrewNavBar");
+    const backgroundRegular = document.querySelectorAll(".background-color-regular");
     const navbarBurgerHtml = document.querySelector(".navbar-burger");
     const navbarItemHtml = document.querySelectorAll(".navbar-item");
     const footerHtml = document.querySelector(".page-footer");
     const footerCopyrightHtml = document.querySelector(".footer-copyright");
-    const pantoneBtn = document.querySelector("#pantoneBtn");
-    const buttons = document.querySelectorAll('.pantoneBtn--regular')
+    const themeButton = document.querySelector("#themeButton");
+    const buttons = document.querySelectorAll('.slothcrew-button-regular');
 
     bodyHtml.classList.toggle("background-color-hotpink");
-    navbarHtml.classList.toggle("background-color-hotpink");
-    for (item of navbarItemHtml){
-      item.classList.toggle("navbar-item-hotpink-style");
-    }
-    for (button of buttons) {
-      button.classList.toggle('pantoneBtn')
-    }
     footerHtml.classList.toggle("footer-background--hotpink");
     footerCopyrightHtml.classList.toggle("footer-background--hotpink");
-    pantoneBtn.classList.toggle("pantoneBtn--regular");
+    themeButton.classList.toggle('theme-change-button-toggled');
     
+    for (let bg of backgroundRegular){
+      bg.classList.toggle("background-color-hotpink");
+    }
+    for (let item of navbarItemHtml){
+      item.classList.toggle("navbar-item-hotpink-style");
+    }
+    for (let button of buttons) {
+      button.classList.toggle('slothcrew-button-hotpink');
+    }
   }
