@@ -508,13 +508,22 @@
                         </div>
                         <form action="#">
                             <p class="range-field">
-                                <input type="range" id="colorslider" min="0" max="16777215" step="1"/>
+                                <input type="range" id="colorslider" min="0" max="16777215" step="1" />
                             </p>
                         </form>
                     </div>
-                    <div class="title is-size-2 has-text-centered">
-                        Use the slider to change the color!
-                        The current color is: <span id="selectedcolor">#FF0066</span>
+                    <div class="row title is-size-3 has-text-centered">
+                        <div class="col s12">
+                            Use the slider to change the color, or type the desired color on the field below. 
+                            
+                            <br />
+                            The current color is: 
+                            <br />
+                        </div>
+                        <div class="col s2 push-s5">
+                                <input name="selectedcolor" id="selectedcolor" type="text" value="#FF0066" class="has-text-centered">
+                        </div>
+                            
                     </div>
                 </div>
             </div>
@@ -537,16 +546,27 @@
         </div>
     </footer>
     <script>
-        var slider;
+        function rgb2hex(rgb) {
+            rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+            function hex(x) {
+                return ("0" + parseInt(x).toString(16)).slice(-2);
+            }
+            return hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+        }
         document.getElementById("colorslider").value = parseInt("FF0066", 16);
         document.getElementById("Color").style.fill = "#FF0066";
         document.getElementById('colorslider').addEventListener('input', function () {
-            slider = document.getElementById('colorslider');
+            let slider = document.getElementById('colorslider');
             document.getElementById("Color").style.fill = parseInt(slider.value).toString(16).padStart(6, "0");
-            document.getElementById("selectedcolor").innerHTML = "#" + (parseInt(slider.value).toString(16).padStart(6, "0")).toUpperCase();
+            document.querySelector("#selectedcolor").value = "#" + (parseInt(slider.value).toString(16).padStart(6, "0")).toUpperCase();
         });
+        document.querySelector("#selectedcolor").addEventListener('change', function () {
+            let slider = document.getElementById('colorslider');
+            document.getElementById("Color").style.fill = document.querySelector("#selectedcolor").value
+            document.getElementById('colorslider').value = parseInt(rgb2hex(document.getElementById("Color").style.fill), 16);
+            //document.querySelector("#selectedcolor").value = "#" + (parseInt(slider.value).toString(16).padStart(6, "0")).toUpperCase();
+        })
     </script>
 </body>
 
 </html>
-
