@@ -65,9 +65,10 @@ body {
 
   min-height: calc(100vh - 250px) ;
   padding: 10px 10px 0 10px;
+  padding-top: 50px;
 }
 
-.main-content-style {
+body {
     padding-top: 50px;
     font-family: "Special Elite", cursive;
 }
@@ -188,3 +189,21 @@ svg {
   margin-top: 20px;
 }
      
+.hero {
+  background-color: #5F4B8B !important;
+}
+.hero--hotpink {
+  background-color: #ec407a !important;
+}
+
+.headerPic {
+  background: url("../../images/img007.png");
+  background-blend-mode: hard-light;
+  background-size: cover;
+  margin-bottom: 40px;
+
+}
+
+.card {
+  margin:0;
+}

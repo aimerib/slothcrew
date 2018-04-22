@@ -38,6 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const footerCopyrightHtml = document.querySelector(".footer-copyright");
     const themeButton = document.querySelector("#themeButton");
     const buttons = document.querySelectorAll('.slothcrew-button-regular');
+    const hero = document.querySelector(".hero");
+
 
     bodyHtml.classList.toggle("background-color-hotpink");
     footerHtml.classList.toggle("footer-background--hotpink");
@@ -53,4 +55,8 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let button of buttons) {
       button.classList.toggle('slothcrew-button-hotpink');
     }
+    //hero.classList.toggle("headerPic")
+    hero.classList.toggle("hero--hotpink")
+
   }
+  
