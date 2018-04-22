@@ -1,0 +1,21 @@
+.hidden {
+    visibility: hidden;
+    transition: linear;
+}
+
+#Sloth {
+    fill: black;
+    transform-origin: 50% 50%;
+    transform: scale(0.8);
+}
+#RotateArea {
+    transform-origin: 50% 50%;
+}
+
+#Outline {
+    fill: black;
+}
+
+#Color {
+    fill: #FF0066;
+}
