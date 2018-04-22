@@ -3,6 +3,8 @@ body {
     min-height: 100vh;
     flex-direction: column;
     background-color: #5F4B8B;
+    padding-top: 50px;
+    font-family: "Special Elite", cursive;
   }
 
   main {
@@ -29,12 +31,14 @@ body {
 .navbar-brand {
   height: 100px;
 }
-.slothLogo {
-  width: 80px;
-  height: 80px;
+.slothLogo #SlothCrew {
+  width: 70px;
+  height: 70px;
   margin-left: 20px;
-  margin-top: 0px;
+  margin-top: 10px;
+  fill: yellow;
 }
+
 .slothcrewSlogan {
   padding-left: 20px;
   font-family: "Bangers", cursive;
@@ -43,7 +47,7 @@ body {
   padding-right: 20px;
 }
 .sloganContainer {
-  padding-top: 10px;
+  padding-top: 15px;
 }
 .navbar-item-regular-style {
   background-color: yellow;
@@ -68,11 +72,6 @@ body {
   padding-top: 50px;
 }
 
-body {
-    padding-top: 50px;
-    font-family: "Special Elite", cursive;
-}
-
 .footer-style {
   padding: 10px;
   font-family: "Bangers", cursive;
@@ -80,10 +79,6 @@ body {
 
 .slothBranding {
   color: yellow !important;
-}
-
-svg {
-  fill: yellow;
 }
 
 .footer-background {
@@ -206,4 +201,8 @@ svg {
 
 .card {
   margin:0;
+}
+
+.hidden {
+  visibility: hidden;
 }

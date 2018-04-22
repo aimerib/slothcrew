@@ -1,21 +1,42 @@
-.hidden {
-    visibility: hidden;
-    transition: linear;
+#playgroundArea {
+    max-width: 800px;
 }
+#slothTest #SlothCrew {
+    width: 80%;
+    height: auto;
+  }
 
-#Sloth {
-    fill: black;
+#slothTest #Sloth {
     transform-origin: 50% 50%;
     transform: scale(0.8);
 }
-#RotateArea {
+#slothTest #RotateArea {
     transform-origin: 50% 50%;
 }
 
-#Outline {
+.icon-moonpop #MoonPop {
+    width: 80%;
+    height: auto;
+}
+.icon-moonpop #Color {
+    fill: #FF0066;
+}
+.icon-moonpop #Outline {
     fill: black;
 }
+#colorslider {
+    margin-bottom: 25px;
+}
+#colorslider::-webkit-slider-thumb {
+    width: 25px !important; /* Set a specific slider handle width */
+    height: 25px !important; /* Slider handle height */
+    margin-top: -10px !important;
+    background: #5F4B8B !important; /* Green background */
+  }
 
-#Color {
-    fill: #FF0066;
+#colorslider::-moz-range-thumb {
+    width: 25px !important; /* Set a specific slider handle width */
+    height: 25px !important; /* Slider handle height */
+    margin-top: -10px !important;
+    background: #5F4B8B !important; /* Green background */
 }

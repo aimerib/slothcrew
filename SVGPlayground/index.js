@@ -1,6 +1,6 @@
 //Declaring variables
-let leftEyeBlinking = document.querySelector("#LeftEyeBlinking");
-let rightEyeBlinking = document.querySelector("#RightEyeBlinking");
+let leftEyeBlinking = document.querySelectorAll("#LeftEyeBlinking")[1];
+let rightEyeBlinking = document.querySelectorAll("#RightEyeBlinking")[1];
 
 // Blinkds down, waits half a sencond and calls blink up function
 function SlothBlinkDown() {
@@ -26,6 +26,6 @@ SlothBlinkDown();
 // Links range slider to rotate style of sloth
 document.querySelector("#colorslider").addEventListener("input", function() {
   let slider = document.querySelector("#colorslider");
-  document.querySelector("#RotateArea").style.transform =
+  document.querySelectorAll("#RotateArea")[1].style.transform =
     "rotate(" + parseInt(slider.value) + "deg)";
 });
