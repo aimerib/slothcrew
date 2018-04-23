@@ -192,7 +192,7 @@ body {
 }
 
 .headerPic {
-  background: url("../../images/img007.png");
+  background: url("http://res.cloudinary.com/slothcrew/image/upload/c_scale,q_39,w_1047/v1524489267/Slothcrew/img007.png");
   background-blend-mode: hard-light;
   background-size: cover;
   margin-bottom: 40px;
