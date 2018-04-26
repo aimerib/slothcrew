@@ -61,6 +61,11 @@ body {
   font-size: 1.5rem;
   font-family: "Bangers", cursive;
 }
+.noir {
+  background-color: black;
+  color: #fefefe;
+}
+
 .navbar-item-hotpink-style {
     background-color: yellow;
     color: #ec407a;
