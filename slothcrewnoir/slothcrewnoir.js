@@ -7,7 +7,6 @@ fetch('https://res.cloudinary.com/slothcrew/image/list/slothcrewnoir.json')
     return response.json();
   })
   .then(function(myJson) {
-      console.log(myJson.resources.length)
       for(resource of myJson.resources) {
         let image = document.createElement('img')
         let urlWithThumb = thumbnailUrl + resource.public_id + '.' + resource.format
@@ -17,6 +16,4 @@ fetch('https://res.cloudinary.com/slothcrew/image/list/slothcrewnoir.json')
         image.addEventListener("click", function (){window.open(url,"_self")})
         document.querySelector('#pictureboard').appendChild(image)
       }
-      //let url = urlBase + myJson.resources[0].public_id + '.' + myJson.resources[0].format
-    //document.querySelector('#pictureboard').innerHTML = "<img src=" + url + "></a>"
   });
