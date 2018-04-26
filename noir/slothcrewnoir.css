@@ -1,31 +1,87 @@
+.modal {
+  width: 95vw;
+  height: 95vh;
+  max-height: 98%;
+  top: 0 !important;
+  margin-top: 1% !important;
+  overflow: initial;
+}
+.modal:focus, .dropdown-trigger:focus{
+  outline:none!important 
+}
+
+.modal-content {
+  
+  width: initial !important;
+  padding: 10px 10px 10px 10px !important;
+  margin-top: 40%;
+  margin-bottom: 0 !important;
+  /*top: 50%;
+  right: 50%;
+  transform:  translate(calc(48vw),calc(-46vh));*/
+}
+
+#closeModal {
+  position:absolute;
+  top:-22px;
+  right:-15px;
+  max-width: 35px !important;
+  max-height: 35px !important;
+  background-color: #5F4B8B !important;
+}
+#closeModal:hover {
+  background-color: black
+}
+
+@media (max-width: 400px) {
+  #closeModal {
+    top:-5px;
+    right:0px;
+  }
+}
 @media (min-width: 750px) {
-    .pictureContent {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-       /*grid-template-rows: 50% 50%;*/
-      grid-column-gap: 10px;
-      grid-row-gap: 10px;
-    }
-    }
-    body {
-        background-color: black;
-    }
-    .background-color-regular {
-    
-        background-color: black;
-    }
+  .pictureContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    /*grid-template-rows: 50% 50%;*/
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+}
+body {
+  background-color: black;
+}
+.background-color-regular {
+  background-color: black;
+}
 
-    .slothLogo #SlothCrew {
-        fill: #fefefe;
-      }
+.slothLogo #SlothCrew {
+  fill: #fefefe;
+}
 
-      .navbar-item-regular-style {
-        background-color: #fefefe;
-        color: black;
-      }
-      .slothBranding {
-        color: #fefefe !important;
-      }
-      .footer-background {
-        background-color: black!important;
-      }
+.navbar-item-regular-style {
+  background-color: #fefefe;
+  color: black;
+}
+.slothBranding {
+  color: #fefefe !important;
+}
+.footer-background {
+  background-color: black !important;
+}
+
+#fullImage {
+  max-width:  100%;
+  max-height: calc(100vh - calc(10vh));
+  margin: 0 auto;
+}
+.modal-footer {
+  height: 10px !important;
+}
+
+@media screen and (min-width: 769px), print {
+  .modal-content {
+    margin: initial !important;
+
+  }
+}

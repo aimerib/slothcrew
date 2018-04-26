@@ -8,12 +8,23 @@ fetch('https://res.cloudinary.com/slothcrew/image/list/slothcrewnoir.json')
   })
   .then(function(myJson) {
       for(resource of myJson.resources) {
+        let linkForModal = document.createElement('a')
         let image = document.createElement('img')
         let urlWithThumb = thumbnailUrl + resource.public_id + '.' + resource.format
         let url = urlBase + resource.public_id + '.' + resource.format
+        linkForModal.href = "#modal1"
+        linkForModal.classList.add("modal-trigger")
         image.src = urlWithThumb
+        //image.classList.add("modal-trigger")
         image.style.cursor = "pointer"
-        image.addEventListener("click", function (){window.open(url,"_self")})
-        document.querySelector('#pictureboard').appendChild(image)
+        linkForModal.appendChild(image)
+        image.addEventListener("click", function (ev){changeModal(url)})
+        document.querySelector('#pictureboard').appendChild(linkForModal)
       }
   });
+
+  function changeModal(url) {
+
+    document.querySelector("#fullImage").src = url
+    document.querySelector("#cloudinaryImage").href = url
+  }
