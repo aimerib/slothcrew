@@ -1,6 +1,6 @@
 let urlBase = "https://res.cloudinary.com/slothcrew/image/upload/q_auto:low,w_auto/"
 
-fetch('http://res.cloudinary.com/slothcrew/image/list/slothcrewnoir.json')
+fetch('https://res.cloudinary.com/slothcrew/image/list/slothcrewnoir.json')
   .then(function(response) {
     return response.json();
   })
