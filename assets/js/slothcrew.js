@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
               // Toggle the class on both the "navbar-burger" and the "navbar-menu"
               var menuStates = Array.prototype.slice.call(document.querySelectorAll('#new-navbar-burger g'), 0);
-              menuStates.map((el) => { el.classList.toggle('hidden') })
+              menuStates.map((el) => { el.classList.toggle('hiddenMenu'); console.log(el.classList) })
               //console.log($el.children)
               $target.classList.toggle('is-active');
 
@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
   function toggleMenu () {
-    document.querySelector('.navbar-burger').classList.toggle("is-active");
+    var menuStates = Array.prototype.slice.call(document.querySelectorAll('#new-navbar-burger g'), 0);
+              menuStates.map((el) => { el.classList.toggle('hiddenMenu'); console.log(el.classList) })
     document.querySelector('.navbar-menu').classList.toggle("is-active");
   }
   

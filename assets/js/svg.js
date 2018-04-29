@@ -27,11 +27,33 @@ for (let icon of iconSloth) {
             `;
 }
 
+let newNavBarBurger = [...document.querySelectorAll(".newNavBarBurger")];
+for (let icon of newNavBarBurger) {
+  icon.innerHTML = `
+    <svg id="new-navbar-burger" data-target="navMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" preserveAspectRatio="xMidYMid meet">
+    <rect width="100%" height="100%" id="navbar-burger-bg" />
+    <svg height="70%" width="70%" viewBox="0 0 20 20" preserveAspectRatio="xMidYMid meet" X="15%" Y="15%">
+        <g id="closed">
+        <path d="M2,4H18a1.5,1.5,0,0,0,0-3H2A1.5,1.5,0,0,0,2,4Z" />
+        <path d="M2,9H18a1.5,1.5,0,0,0,0-3H2A1.5,1.5,0,0,0,2,9Z" />
+        <path d="M2,14H18a1.5,1.5,0,0,0,0-3H2a1.5,1.5,0,0,0,0,3Z" />
+        <path d="M2,19H18a1.5,1.5,0,0,0,0-3H2a1.5,1.5,0,0,0,0,3Z" />
+        </g>
+    </svg>
+    <svg height="70%" width="70%" viewBox="0 0 20 20" preserveAspectRatio="xMidYMid meet" X="15%" Y="15%">
+        <g id="opened" class="hiddenMenu">
+        <path d="M1.44,3.56l15,15a1.5,1.5,0,0,0,2.12-2.12l-15-15A1.5,1.5,0,0,0,1.44,3.56Z" />
+        <path d="M16.44,1.44l-15,15a1.5,1.5,0,0,0,2.12,2.12l15-15a1.5,1.5,0,0,0-2.12-2.12Z" />
+        </g>
+    </svg>
+    </svg>
+    `;
+}
 
 
 let iconMoonPop = [...document.querySelectorAll(".icon-moonpop")];
 for (let icon of iconMoonPop) {
-    icon.innerHTML = `
+  icon.innerHTML = `
     <svg version="1.1" id="MoonPop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 600 600" style="enable-background:new 0 0 600 600;" xml:space="preserve">
                                 <style type="text/css">
@@ -448,5 +470,5 @@ for (let icon of iconMoonPop) {
                 c0.1,0,0.2,0,0.4,0C350.5,147.5,351.2,146.4,351.7,145.3L351.7,145.3z" />
                                 </g>
                             </svg>
-    `
+    `;
 }

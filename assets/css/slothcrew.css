@@ -31,10 +31,7 @@ body {
 .navbar {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2) !important;
 }
-
-#new-navbar-burger {
-  cursor: pointer;
-  fill: yellow;
+.newNavBarBurger {
   position: relative;
   display: block;
   margin-left: auto;
@@ -42,10 +39,14 @@ body {
   min-width: 20px;
   max-width: 80px;
   width: 10vw;
-  margin-top: 0px;
+  margin-top: 10px;
+  cursor: pointer;
   -webkit-user-select: none; 
   -moz-user-select: none; 
   -ms-user-select: none;
+}
+#new-navbar-burger {
+  fill: yellow;
 }
 #navbar-burger-bg{
     fill: rgba(0, 0, 0, 0)
@@ -236,10 +237,13 @@ body {
 
 
 .hidden {
+  visibility: hidden;
+}
+
+.hiddenMenu {
   opacity:0;
   transition:opacity .2s linear;
 }
-
 
 @media (min-width: 750px) {
   .portfolioContent {
@@ -253,13 +257,13 @@ body {
 
   
   @media screen and (min-width: 1088px) {
-    #new-navbar-burger {
+    .newNavBarBurger {
       visibility: hidden;
     }
   }
   @media screen and (max-width: 500px) {
-    #new-navbar-burger {
-      margin-top: -15px;
+    .newNavBarBurger {
+      margin-top: 20px;
     }
   }
   
