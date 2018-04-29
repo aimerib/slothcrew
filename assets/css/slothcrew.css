@@ -32,6 +32,28 @@ body {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2) !important;
 }
 
+#new-navbar-burger {
+  cursor: pointer;
+  fill: yellow;
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: 25px;
+  min-width: 20px;
+  max-width: 80px;
+  width: 10vw;
+  margin-top: 0px;
+  -webkit-user-select: none; 
+  -moz-user-select: none; 
+  -ms-user-select: none;
+}
+#navbar-burger-bg{
+    fill: rgba(0, 0, 0, 0)
+}
+#new-navbar-burger:hover #navbar-burger-bg {
+  fill: rgba(0, 0, 0, 0.2);
+}
+
 .navbar-brand {
   height: 100px;
 }
@@ -214,7 +236,8 @@ body {
 
 
 .hidden {
-  visibility: hidden;
+  opacity:0;
+  transition:opacity .2s linear;
 }
 
 
@@ -226,3 +249,17 @@ body {
     grid-column-gap: 10px;
   }
   }
+
+
+  
+  @media screen and (min-width: 1088px) {
+    #new-navbar-burger {
+      visibility: hidden;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    #new-navbar-burger {
+      margin-top: -15px;
+    }
+  }
+  

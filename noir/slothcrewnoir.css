@@ -1,3 +1,13 @@
+#new-navbar-burger {
+  fill: #fefefe;
+}
+#navbar-burger-bg{
+  fill: rgba(0, 0, 0, 0)
+}
+#new-navbar-burger:hover #navbar-burger-bg {
+fill: rgba(250, 250, 250, 0.1);
+}
+
 .modal {
   width: 95vw;
   height: 95vh;
