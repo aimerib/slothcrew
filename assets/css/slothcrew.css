@@ -41,6 +41,7 @@ body {
   width: 10vw;
   margin-top: 10px;
   cursor: pointer;
+  user-select: none;
   -webkit-user-select: none; 
   -moz-user-select: none; 
   -ms-user-select: none;
@@ -102,6 +103,7 @@ body {
   min-height: calc(100vh - 250px) ;
   padding: 10px 10px 0 10px;
   padding-top: 50px;
+  max-width: 900px
 }
 
 .footer-style {
@@ -227,8 +229,8 @@ body {
   background: url("https://res.cloudinary.com/slothcrew/image/upload/c_scale,q_39,w_1047/v1524489267/Slothcrew/img007.png");
   background-blend-mode: hard-light;
   background-size: cover;
-  margin-bottom: 40px;
-
+  margin-top: 40px;
+  margin-bottom: -60px;
 }
 
 .card {
