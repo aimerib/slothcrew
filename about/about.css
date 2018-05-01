@@ -1,13 +1,19 @@
 body {
     background-color: #5F4B8B;
+    min-width: 360px;
   }
   
   .content-container {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
     display:grid;
     grid-template-columns: 1fr 1fr 100px;
     grid-column-gap: 10px;
     background-color: #fefefe;
     max-width: 600px;
+    min-width: 320px;
     min-height: 400px;
     margin: 0 auto;
     margin-top: 150px;
