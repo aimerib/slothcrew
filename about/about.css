@@ -181,6 +181,10 @@ img, audio, video {
     font-weight: 900;
   }
   
+  div .link-spacing {
+    display: inline-flex;
+  }
+
   .highlight-links {
     display: inline;
     position: relative;
