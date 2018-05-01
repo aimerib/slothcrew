@@ -155,7 +155,7 @@ img, audio, video {
   .btn-social svg {
     fill: #fefefe;
     width: 26px;
-    transform: rotate(-10%, -10%);
+    transform: translate(-10%, -10%);
   
   }
   
