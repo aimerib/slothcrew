@@ -10,7 +10,7 @@ body {
   main {
     flex: 1 0 auto;
   }
-      
+  
 .background-color-regular {
     
     background-color: #5F4B8B;
@@ -236,7 +236,8 @@ body {
 }
 
 .card {
-  margin: 100px 10px 10px 10px;
+  margin: 0 auto;
+  margin-top: 100px;
 }
 
 
