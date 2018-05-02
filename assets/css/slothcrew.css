@@ -240,6 +240,11 @@ body {
   margin-top: 100px;
 }
 
+.section-padding {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 
 .hidden {
   visibility: hidden;
