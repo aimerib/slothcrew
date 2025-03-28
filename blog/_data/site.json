@@ -1,0 +1,23 @@
+{
+  "title": "Aimeri Baddouh",
+  "description": "Senior Software Engineer - Personal blog and portfolio",
+  "url": "https://baddouh.com",
+  "author": "Aimeri Baddouh",
+  "email": "aimeri@baddouh.com",
+  "github": "https://github.com/aimerib",
+  "buildTime": "{% now %}",
+  "nav": [
+    {
+      "text": "Home",
+      "url": "/"
+    },
+    {
+      "text": "Blog",
+      "url": "/blog"
+    },
+    {
+      "text": "Photography",
+      "url": "/noir"
+    }
+  ]
+} 

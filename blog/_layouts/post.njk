@@ -1,0 +1,50 @@
+---
+layout: base.njk
+---
+
+<div class="blog-post">
+    <div class="container post-container">
+        <article>
+            <header class="post-header">
+                <h1>{{ title }}</h1>
+                <div class="post-meta">
+                    <time datetime="{{ date | safe }}">{{ date | formatDate }}</time>
+                    {% if tags %}
+                    <div class="post-tags">
+                        {% for tag in tags %}
+                            <a href="/blog/tags/{{ tag | slug }}/" class="tag">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </header>
+            
+            <div class="post-content">
+                {{ content | safe }}
+            </div>
+            
+            <div class="post-footer">
+                <div class="post-navigation">
+                    {%- set previousPost = collections.posts | getPreviousCollectionItem %}
+                    {%- set nextPost = collections.posts | getNextCollectionItem %}
+                    
+                    {% if previousPost %}
+                    <div class="prev-post">
+                        <a href="{{ previousPost.url }}">&larr; {{ previousPost.data.title }}</a>
+                    </div>
+                    {% else %}
+                    <div class="prev-post"></div>
+                    {% endif %}
+                    
+                    {% if nextPost %}
+                    <div class="next-post">
+                        <a href="{{ nextPost.url }}">{{ nextPost.data.title }} &rarr;</a>
+                    </div>
+                    {% else %}
+                    <div class="next-post"></div>
+                    {% endif %}
+                </div>
+            </div>
+        </article>
+    </div>
+</div> 

@@ -5,86 +5,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Slothcrew Design</title>
+    <title>Aimeri Baddouh | Noir Photography</title>
     <link rel="icon" href="../images/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Bangers|Poiret+One|Special+Elite" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/slothcrew.css">
-    <link rel="stylesheet" href="../assets/css/ionicons.css">
-    <link rel="stylesheet" href="slothcrewnoir.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script src="../assets/js/slothcrew.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="noir.css">
 </head>
 
-<body class="has-navbar-fixed-top">
+<body>
+    <div class="grain-overlay"></div>
+    
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">AB</a>
+                </div>
+                <h1 class="site-title">Noir Photography</h1>
+                <div class="navigation">
+                    <a href="../index.html" class="nav-link">
+                        <i class="fas fa-arrow-left"></i> Back to Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Through the Lens</h2>
+                <p>A collection of moments captured in black & white, exploring light, shadow, and the beauty of analog photography.</p>
+            </div>
+        </div>
+    </section>
+
     <main>
-        <nav class="navbar is-fixed-top background-color-regular navbar-slant" id="slothcrewNavBar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <a href="../index.html">
-                    <b class="icon-sloth slothLogo"></b>
-                </a>
-                <a href="../index.html">
-                    <div class="level sloganContainer">
-                        <span class="slothcrew-brand is-size-3 has-text-weight-bold slothcrewSlogan slothBranding">Slothcrew Noir</span>
-                    </div>
-                </a>
-                <b class="newNavBarBurger"></b>
-
-
-            </div>
-            </div>
-            <div class="navbar-menu is-danger" aria-label="menu" aria-expanded="false" id="navMenu">
-
-                <div class="navbar-end">
-                    <a class="navbar-item navbar-item-regular-style" href="../index.html" onclick="toggleMenu()">Home</a>
+        <div class="container">
+            <div class="gallery-controls">
+                <div class="view-toggle">
+                    <button class="toggle-btn active" data-view="grid">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="toggle-btn" data-view="column">
+                        <i class="fas fa-columns"></i>
+                    </button>
                 </div>
-
             </div>
-        </nav>
-
-        <div class="card main-content-container main-content-style">
-            <div class="card-content">
-                <div class="container">
-                        
-                    <div id="pictureboard" class="pictureContent">
-
-                    </div>
-                </div>
+            
+            <div id="gallery" class="gallery grid-view"></div>
+            
+            <div class="gallery-loader">
+                <div class="loader"></div>
             </div>
         </div>
     </main>
 
-    <footer class="page-footer footer-background">
-        <div class="footer-copyright footer-background">
-            <div class="container has-text-centered">
-                <div class="level ">
-                    <div class="level-item footer-style ">
-                        <strong class="slothBranding is-size-5">© 2018 Slothcrew Design</strong>
-
-                    </div>
-
-
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2023 Aimeri Baddouh. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://github.com/aimerib" target="_blank" rel="noopener" aria-label="GitHub Profile">
+                        <i class="fab fa-github"></i>
+                    </a>
                 </div>
-                
             </div>
         </div>
     </footer>
-    <script src="../assets/js/svg.js"></script>
-    <script src="slothcrewnoir.js"></script>
-    <div id="modal1" class="modal">
-        <div class="modal-content has-text-centered">
-            <a href="" id="cloudinaryImage"><img src="" alt="" id="fullImage"></a>
-          
+
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-container">
+            <div class="lightbox-content">
+                <img src="" alt="Full size image" id="lightbox-img">
+            </div>
+            <div class="lightbox-controls">
+                <button class="lightbox-close" id="lightbox-close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <a href="" class="lightbox-download" id="lightbox-download" download target="_blank">
+                    <i class="fas fa-download"></i>
+                </a>
+            </div>
         </div>
-        <div class="modal-footer">
-          <a href="#!" id="closeModal" class="modal-action modal-close btn-floating btn-large waves-effect waves-light"></a>
-        </div>
-      </div>
-      <script>
-        M.AutoInit();
-      </script>
+    </div>
+
+    <script src="noir.js"></script>
 </body>
 
 </html>

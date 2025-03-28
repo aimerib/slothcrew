@@ -1,0 +1,46 @@
+---
+layout: base.njk
+title: Blog
+permalink: /blog/index.html
+---
+
+<div class="blog-index">
+    <div class="container">
+        <header class="page-header">
+            <h1>Blog</h1>
+            <p class="description">Thoughts, ideas, and projects I'm working on.</p>
+        </header>
+
+        <div class="posts-grid">
+            {% for post in collections.posts | reverse %}
+            <article class="post-card">
+                <a href="{{ post.url }}" class="post-link">
+                    {% if post.data.featured_image %}
+                    <div class="post-image">
+                        <img src="{{ post.data.featured_image }}" alt="{{ post.data.title }}" loading="lazy">
+                    </div>
+                    {% endif %}
+                    <div class="post-details">
+                        <h2 class="post-title">{{ post.data.title }}</h2>
+                        <time class="post-date" datetime="{{ post.date | safe }}">
+                            {{ post.date | formatDate }}
+                        </time>
+                        {% if post.data.description %}
+                        <p class="post-excerpt">{{ post.data.description }}</p>
+                        {% endif %}
+                        {% if post.data.tags %}
+                        <div class="post-tags">
+                            {% for tag in post.data.tags %}
+                                {% if tag != "posts" %}
+                                <span class="tag">{{ tag }}</span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</div> 

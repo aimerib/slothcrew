@@ -1,0 +1,76 @@
+---
+layout: base.njk
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - nav
+    - post
+    - posts
+    - tagList
+  addAllPagesToCollections: true
+permalink: /blog/tags/{{ tag | slug }}/
+eleventyComputed:
+  title: "Posts tagged \"{{ tag }}\""
+---
+
+<div class="blog-index">
+    <div class="container">
+        <header class="page-header">
+            <h1>Posts tagged "{{ tag }}"</h1>
+            <p class="description">
+                <a href="/blog/tags/" class="back-link">← All Tags</a>
+            </p>
+        </header>
+
+        <div class="posts-grid">
+            {% for post in collections[tag] | reverse %}
+            <article class="post-card">
+                <a href="{{ post.url }}" class="post-link">
+                    {% if post.data.featured_image %}
+                    <div class="post-image">
+                        <img src="{{ post.data.featured_image }}" alt="{{ post.data.title }}" loading="lazy">
+                    </div>
+                    {% endif %}
+                    <div class="post-details">
+                        <h2 class="post-title">{{ post.data.title }}</h2>
+                        <time class="post-date" datetime="{{ post.date | safe }}">
+                            {{ post.date | formatDate }}
+                        </time>
+                        {% if post.data.description %}
+                        <p class="post-excerpt">{{ post.data.description }}</p>
+                        {% endif %}
+                        {% if post.data.tags %}
+                        <div class="post-tags">
+                            {% for postTag in post.data.tags %}
+                                {% if postTag != "posts" and postTag != tag %}
+                                <span class="tag">{{ postTag }}</span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<style>
+    .back-link {
+        display: inline-block;
+        margin-top: 1rem;
+        color: var(--color-primary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+    }
+    
+    .back-link:hover {
+        opacity: 0.8;
+        transform: translateX(-5px);
+    }
+</style> 
