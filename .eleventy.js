@@ -1,48 +1,7 @@
 module.exports = function(eleventyConfig) {
-  // Require Prism.js for syntax highlighting
-  const Prism = require("prismjs");
-  // Load Prism components for additional languages
-  require("prismjs/components/prism-javascript");
-  require("prismjs/components/prism-css");
-  require("prismjs/components/prism-json");
-  require("prismjs/components/prism-bash");
-  require("prismjs/components/prism-markdown");
-  require("prismjs/components/prism-rust");
-  require("prismjs/components/prism-typescript");
-  require("prismjs/components/prism-python");
-  require("prismjs/components/prism-ruby");
-  require("prismjs/components/prism-elixir");
-  
-  // Set up markdown-it with syntax highlighting
-  const markdownIt = require("markdown-it");
-  const markdownItOptions = {
-    html: true,
-    breaks: true,
-    linkify: true,
-    highlight: function(str, lang) {
-      if (lang && Prism.languages[lang]) {
-        try {
-          return `<pre class="language-${lang}"><code class="language-${lang}">${Prism.highlight(str, Prism.languages[lang], lang)}</code></pre>`;
-        } catch (err) {
-          console.log("Syntax highlighting error: ", err);
-        }
-      }
-      return `<pre class="language-${lang}"><code class="language-${lang}">${markdownIt().utils.escapeHtml(str)}</code></pre>`;
-    }
-  };
-  
-  eleventyConfig.setLibrary("md", markdownIt(markdownItOptions));
-  
-  // Add syntax highlighting with Prism.js (for templates)
-  eleventyConfig.addFilter("highlight", function(code, language) {
-    if (!language) return code;
-    try {
-      return Prism.highlight(code, Prism.languages[language], language);
-    } catch (e) {
-      console.warn(`Couldn't highlight ${language}: ${e}`);
-      return code;
-    }
-  });
+  // Add syntax highlighting plugin
+  const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+  eleventyConfig.addPlugin(syntaxHighlight);
   
   // Copy these directories as-is to the output directory
   eleventyConfig.addPassthroughCopy("assets");
