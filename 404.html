@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>404 - Page Not Found | Aimeri Baddouh</title>
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <header class="nav-header">
+        <nav class="container">
+            <div class="logo">
+                <a href="/">AB</a>
+            </div>
+            <div class="nav-links" id="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/#work" class="nav-link">Work</a>
+                <a href="/#about" class="nav-link">About</a>
+                <a href="/#contact" class="nav-link">Contact</a>
+                <a href="/blog" class="nav-link">Blog</a>
+                <a href="/noir/index.html" class="nav-link nav-link-highlight">Photography</a>
+            </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="min-height: calc(100vh - 80px); display: flex; align-items: center; justify-content: center;">
+            <div class="container" style="display: grid;">
+                <div class="hero-content" style="text-align: center; justify-self: center;">
+                    <div class="hero-content-text" style="display: grid;
+                    gap: 1rem;
+                    background-color: rgba(0,0,0,0.5);
+                    max-width: fit-content;
+                    justify-self: center;
+                    padding: 10rem;
+                    margin: 3rem;
+                    border-radius: 1rem;
+                    box-shadow: 0px 0px 11px rebeccapurple;">
+                        <h1 class="glitch-text" data-text="404">404</h1>
+                        <h2 class="hero-subtitle">Page Not Found</h2>
+                        <p class="hero-description" style="justify-self: center;">The page you're looking for seems to have vanished into the digital void.</p>
+                    </div>
+                    <div class="hero-actions" style="justify-content: center;">
+                        <a href="/" class="btn btn-primary">Return Home</a>
+                        <a href="/blog" class="btn btn-outline">Visit Blog</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-background">
+                <div class="gradient-circle circle-1"></div>
+                <div class="gradient-circle circle-2"></div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
+        });
+
+        // Glitch effect on hover
+        const glitchText = document.querySelector('.glitch-text');
+        
+        glitchText.addEventListener('mouseover', () => {
+            glitchText.style.animation = 'none';
+            void glitchText.offsetWidth;
+            glitchText.style.animation = 'glitch 1s infinite';
+        });
+        
+        glitchText.addEventListener('mouseout', () => {
+            glitchText.style.animation = 'none';
+        });
+    </script>
+</body>
+
+</html> 
