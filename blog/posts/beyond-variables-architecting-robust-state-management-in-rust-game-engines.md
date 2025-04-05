@@ -4,6 +4,7 @@ title: Beyond Variables - Crafting Robust State Management in Rust Game Engines
 date: 2025-03-28
 description: Discover how immutable state patterns in Rust create robust, time-travel capable game engines that work seamlessly across platforms.
 permalink: /blog/posts/{{ title | slug }}/index.html
+featured_image: https://res.cloudinary.com/slothcrew/image/upload/v1524112915/portfoliopics/nightrunner-lib.png
 tags: 
     - rust
     - game development

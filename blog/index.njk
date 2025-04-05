@@ -3,6 +3,7 @@ layout: base.njk
 title: Blog
 permalink: /blog/index.html
 ---
+{% from "responsive-image.njk" import responsiveImage %}
 
 <div class="blog-index">
     <div class="container">
@@ -17,7 +18,7 @@ permalink: /blog/index.html
                 <a href="{{ post.url }}" class="post-link">
                     {% if post.data.featured_image %}
                     <div class="post-image">
-                        <img src="{{ post.data.featured_image }}" alt="{{ post.data.title }}" loading="lazy">
+                        {{ responsiveImage(post.data.featured_image, post.data.title, "(min-width: 768px) 350px, 100vw") }}
                     </div>
                     {% endif %}
                     <div class="post-details">

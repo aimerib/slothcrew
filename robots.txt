@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /_site/
+Disallow: /node_modules/ 
+
+# Sitemap location
+Sitemap: https://baddouh.com/sitemap.xml

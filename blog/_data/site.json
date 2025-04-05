@@ -1,11 +1,16 @@
 {
   "title": "Aimeri Baddouh",
-  "description": "Senior Software Engineer - Personal blog and portfolio",
+  "description": "Senior Software Engineer specializing in web development, Rust, and game engines. Sharing insights on software architecture, game development, and modern web technologies.",
   "url": "https://baddouh.com",
   "author": "Aimeri Baddouh",
   "email": "aimeri@baddouh.com",
   "github": "https://github.com/aimerib",
   "buildTime": "{% now %}",
+  "language": "en",
+  "locale": "en_US",
+  "social": {
+    "github": "https://github.com/aimerib"
+  },
   "nav": [
     {
       "text": "Home",

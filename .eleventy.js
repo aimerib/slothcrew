@@ -7,11 +7,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("noir");
-  eleventyConfig.addPassthroughCopy("SVGPlayground");
-  eleventyConfig.addPassthroughCopy("about");
-  eleventyConfig.addPassthroughCopy("store");
-  eleventyConfig.addPassthroughCopy("template");
-  eleventyConfig.addPassthroughCopy("tribute");
+  eleventyConfig.addPassthroughCopy("robots.txt");
   
   // Create a blog collection from markdown files
   eleventyConfig.addCollection("posts", function(collectionApi) {
@@ -45,17 +41,61 @@ module.exports = function(eleventyConfig) {
     return dateObj.toLocaleDateString('en-US', options);
   });
 
+  // Generate sitemap
+  eleventyConfig.addCollection("sitemapPages", function(collectionApi) {
+    return collectionApi.getAll().filter(item => {
+      // Filter out pages you don't want in the sitemap
+      const excludedPaths = ['404.html'];
+      return !excludedPaths.some(path => item.url.includes(path));
+    });
+  });
+
   // Don't process README files
   eleventyConfig.setTemplateFormats([
     "md", 
     "html",
     "njk",
     "css",
-    "js"
+    "js",
+    "xml" // Add XML for sitemap
   ]);
 
   // Exclude README.md files from processing
   eleventyConfig.ignores.add("**/README.md");
+
+  // Add filter for finding related posts
+  eleventyConfig.addFilter("getRelatedPosts", function(page, collection) {
+    console.log("Post URL:", page.url);
+    console.log("Post data structure:", JSON.stringify(page.data, null, 2));
+    console.log("Post keys:", Object.keys(page));
+    console.log("collection.posts content:", collection.posts);
+    const currentPost = collection.posts.find(post => post.url === page.url);
+    const tags = currentPost.data.tags;
+    const currentPostUrl = currentPost.url;
+    
+    if (!tags) return [];
+
+    const relatedPosts = collection.posts
+      .filter(item => {
+        // Don't include current post
+        if (item.url === currentPostUrl) return false;
+        
+        // Check for tag overlap
+        const itemTags = item.data.tags || [];
+        return tags.some(tag => itemTags.includes(tag));
+      })
+      .sort((a, b) => {
+        // Count matching tags
+        const aTags = a.data.tags || [];
+        const bTags = b.data.tags || [];
+        const aMatches = tags.filter(tag => aTags.includes(tag)).length;
+        const bMatches = tags.filter(tag => bTags.includes(tag)).length;
+        return bMatches - aMatches;
+      })
+      .slice(0, 3); // Get top 3 related posts
+
+    return relatedPosts;
+  });
 
   return {
     dir: {

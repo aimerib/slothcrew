@@ -1,11 +1,38 @@
 ---
 layout: base.njk
 ---
+{% from "responsive-image.njk" import responsiveImage %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ title }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author }}",
+    "url": "{{ site.url }}"
+  },
+  "datePublished": "{{ date | safe }}",
+  "dateModified": "{{ date | safe }}",
+  "description": "{{ description }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}{{ page.url }}"
+  },
+  "keywords": "{% if tags %}{{ tags | join(', ') }}{% endif %}"
+}
+</script>
 
 <div class="blog-post">
     <div class="container post-container">
         <article>
             <header class="post-header">
+                {% if featured_image %}
+                <div class="post-featured-image">
+                    {{ responsiveImage(featured_image, title, "(min-width: 1200px) 1200px, 100vw") }}
+                </div>
+                {% endif %}
                 <h1>{{ title }}</h1>
                 <div class="post-meta">
                     <time datetime="{{ date | safe }}">{{ date | formatDate }}</time>
@@ -22,6 +49,25 @@ layout: base.njk
             <div class="post-content">
                 {{ content | safe }}
             </div>
+            
+            {% set relatedPosts = page | getRelatedPosts(collections) %}
+            {% if relatedPosts.length > 0 %}
+            <div class="related-posts">
+                <h2>Related Articles</h2>
+                <div class="related-posts-grid">
+                    {% for related in relatedPosts %}
+                    <article class="related-post">
+                        <a href="{{ related.url }}" class="related-post-link">
+                            <h3>{{ related.data.title }}</h3>
+                            {% if related.data.description %}
+                            <p>{{ related.data.description }}</p>
+                            {% endif %}
+                        </a>
+                    </article>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
             
             <div class="post-footer">
                 <div class="post-navigation">
