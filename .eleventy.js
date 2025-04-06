@@ -1,6 +1,7 @@
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import EleventyVitePlugin from "@11ty/eleventy-plugin-vite";
 import wasm from 'vite-plugin-wasm';
+import topLevelAwait from "vite-plugin-top-level-await";
 import rollupPluginCritical from 'rollup-plugin-critical'
 
 export default function(eleventyConfig) {
@@ -11,7 +12,7 @@ export default function(eleventyConfig) {
 
 		viteOptions: {
 			publicDir: 'public',
-      plugins: [wasm()],
+      plugins: [wasm(), topLevelAwait()],
 			clearScreen: false,
 			server: {
 				mode: 'development',

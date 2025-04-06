@@ -10,6 +10,7 @@
     "markdown-it": "^14.1.0",
     "rollup-plugin-critical": "^1.0.15",
     "vite": "^6.2.5",
+    "vite-plugin-top-level-await": "^1.5.0",
     "vite-plugin-wasm": "^3.4.1"
   },
   "dependencies": {
