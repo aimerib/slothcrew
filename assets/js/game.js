@@ -48,6 +48,7 @@ class TextAdventureGame {
     }
     
     try {
+      command = command.toLowerCase();
       this.displayMessage(`> ${command}`, "command");
       
       this.history.push(command);
