@@ -1,24 +1,14 @@
-/**
- * Modern Portfolio - Main JavaScript
- * @author Alex Ribeiro
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize all components
   initNavigation();
   initScrollEffects();
   initBackToTop();
 });
 
-/**
- * Handle mobile navigation menu
- */
 function initNavigation() {
   const menuToggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
   const navLinksItems = document.querySelectorAll('.nav-link');
 
-  // Toggle mobile menu
   if (menuToggle) {
     menuToggle.addEventListener('click', () => {
       menuToggle.classList.toggle('active');
@@ -27,7 +17,6 @@ function initNavigation() {
     });
   }
 
-  // Close mobile menu when a link is clicked
   navLinksItems.forEach(link => {
     link.addEventListener('click', () => {
       menuToggle.classList.remove('active');
@@ -37,15 +26,11 @@ function initNavigation() {
   });
 }
 
-/**
- * Handle scroll effects
- */
 function initScrollEffects() {
   const header = document.querySelector('header');
   const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  // Add shadow to header on scroll
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
       header.classList.add('scrolled');
@@ -53,11 +38,9 @@ function initScrollEffects() {
       header.classList.remove('scrolled');
     }
     
-    // Highlight active nav item
     updateActiveNavLink();
   });
 
-  // Update active nav link based on scroll position
   function updateActiveNavLink() {
     let currentSection = '';
     
@@ -78,7 +61,6 @@ function initScrollEffects() {
     });
   }
 
-  // Animate section elements as they come into view
   const observerOptions = {
     root: null,
     rootMargin: '0px',
@@ -94,21 +76,16 @@ function initScrollEffects() {
     });
   }, observerOptions);
   
-  // Add animation classes and observe elements
   document.querySelectorAll('.work-item, .about-grid, .contact-form, .contact-info').forEach(el => {
     el.classList.add('animate-on-scroll');
     observer.observe(el);
   });
 }
 
-/**
- * Initialize back to top button
- */
 function initBackToTop() {
   const backToTop = document.getElementById('back-to-top');
   
   if (backToTop) {
-    // Show/hide button based on scroll position
     window.addEventListener('scroll', () => {
       if (window.scrollY > 500) {
         backToTop.classList.add('visible');
@@ -117,7 +94,6 @@ function initBackToTop() {
       }
     });
     
-    // Scroll to top when clicked
     backToTop.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
