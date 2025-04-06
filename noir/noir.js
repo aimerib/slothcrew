@@ -38,7 +38,7 @@ function initGallery() {
       // Process each image
       data.resources.forEach((resource, index) => {
         const imageUrl = thumbnailUrl + resource.public_id + '.' + resource.format;
-        const fullImageUrl = `https://res.cloudinary.com/slothcrew/image/upload/q_auto:best/${resource.public_id}.${resource.format}`;
+        const fullImageUrl = `https://res.cloudinary.com/slothcrew/image/upload/${resource.public_id}.${resource.format}`;
         
         // Create gallery item
         const galleryItem = document.createElement('div');
@@ -59,9 +59,9 @@ function initGallery() {
         // Append image to gallery item
         galleryItem.appendChild(img);
         
-        // Append gallery item to gallery
         gallery.appendChild(galleryItem);
       });
+      shuffleGallery(gallery);
     })
     .catch(error => {
       console.error('Error loading images:', error);
@@ -71,7 +71,19 @@ function initGallery() {
           <p>Could not load images. Please try again later.</p>
         </div>
       `;
-    });
+    });  
+}
+
+function shuffleGallery(gallery) {
+  // Convert children to array
+  const children = Array.from(gallery.children);
+  
+  // Shuffle array using Fisher-Yates algorithm
+  for (let i = children.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * children.length);
+    // Remove and reinsert in random order
+    gallery.appendChild(children[j]);
+  }
 }
 
 /**
