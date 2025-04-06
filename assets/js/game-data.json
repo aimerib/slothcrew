@@ -1,0 +1,361 @@
+{
+    "allowed_prepositions": {
+      "prepositions": [
+        "aboard", "about", "above", "across", "after", "against", "along", "amid", 
+        "among", "around", "as", "at", "before", "behind", "below", "beneath", 
+        "beside", "between", "beyond", "but", "by", "concerning", "considering", 
+        "despite", "during", "except", "following", "for", "from", "in", "inside", 
+        "into", "like", "minus", "near", "next", "of", "off", "on", "onto", 
+        "opposite", "out", "outside", "over", "past", "per", "plus", "regarding", 
+        "round", "save", "since", "than", "through", "till", "to", "toward", 
+        "under", "underneath", "unlike", "until", "up", "upon", "versus", "via", 
+        "with", "within", "without"
+      ]
+    },
+    "allowed_determiners": {
+      "determiners": [
+        "my", "our", "your", "his", "her", "its", "their", "first", "second", 
+        "third", "next", "last", "much", "some", "no", "any", "many", "enough", 
+        "several", "little", "all", "lot of", "plenty of", "another", "a", "an", 
+        "the", "each", "every", "neither", "either", "one", "two", "three", "ten", 
+        "fifty", "hundred", "thousand"
+      ]
+    },
+    "allowed_movements": {
+      "movements": [
+        "go", "move", "run", "walk", "jog", "amble", "dart", "limp", "saunter", 
+        "scamper", "scurry", "stagger", "strut", "swagger", "tiptoe", "waltz", "sneak"
+      ]
+    },
+    "allowed_directions": {
+      "directions": [
+        "north", "south", "east", "west", "up", "down", "left", "right"
+      ]
+    },
+    "allowed_verbs": [
+      {
+        "id": 1,
+        "names": ["quit", ":q", "q"],
+        "verb_function": "quit"
+      },
+      {
+        "id": 2,
+        "names": ["help"],
+        "verb_function": "help"
+      },
+      {
+        "id": 3,
+        "names": ["look", "examine", "check"],
+        "verb_function": "look"
+      },
+      {
+        "id": 4,
+        "names": ["inventory", "i", "items"],
+        "verb_function": "inventory"
+      },
+      {
+        "id": 5,
+        "names": ["pick", "take", "grab", "get"],
+        "verb_function": "take"
+      },
+      {
+        "id": 6,
+        "names": ["drop", "place", "put"],
+        "verb_function": "drop"
+      },
+      {
+        "id": 7,
+        "names": ["give", "hand", "offer"],
+        "verb_function": "normal"
+      },
+      {
+        "id": 8,
+        "names": ["talk", "chat", "speak"],
+        "verb_function": "talk"
+      },
+      {
+        "id": 9,
+        "names": ["use", "operate", "apply", "code", "program"],
+        "verb_function": "normal"
+      },
+      {
+        "id": 10,
+        "names": ["read", "review"],
+        "verb_function": "normal"
+      }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "name": "laptop",
+        "description": "Your trusty development machine, loaded with VS Code, Docker, and all your favorite tools for Ruby, React, and Rust development.",
+        "can_pick": true
+      },
+      {
+        "id": 2,
+        "name": "coffee mug",
+        "description": "A large mug with 'Keep Calm and Code On' printed on it. Essential for those long coding sessions.",
+        "can_pick": true
+      },
+      {
+        "id": 3,
+        "name": "rust crate",
+        "description": "Your Nightrunner text adventure engine, written in Rust. This powers interactive fiction games and can be compiled to WebAssembly.",
+        "can_pick": true
+      },
+      {
+        "id": 4,
+        "name": "portfolio",
+        "description": "Your online portfolio showcasing projects like Nightrunner Engine, Nightrunner Editor, and Puppeteer GIF Cast.",
+        "can_pick": false
+      },
+      {
+        "id": 5,
+        "name": "whiteboard",
+        "description": "A whiteboard filled with diagrams explaining state management patterns in the Nightrunner Engine, demonstrating immutable state transitions.",
+        "can_pick": false
+      },
+      {
+        "id": 6,
+        "name": "bug report",
+        "description": "A detailed bug report about an issue in the streaming solution you developed at Poll Everywhere.",
+        "can_pick": true
+      },
+      {
+        "id": 7,
+        "name": "documentation",
+        "description": "Comprehensive documentation for the Nightrunner Engine, explaining how to use the WebAssembly exports effectively.",
+        "can_pick": true
+      }
+    ],
+    "subjects": [
+      {
+        "id": 1,
+        "name": "recruiter",
+        "description": "A tech recruiter interested in your skills and experience with Ruby, React, and Rust.",
+        "default_text": "The recruiter says: 'I'm impressed with your experience at Poll Everywhere and ServicePros. Can you tell me more about your work with Rust and WebAssembly?'"
+      },
+      {
+        "id": 2,
+        "name": "colleague",
+        "description": "A fellow developer who's working with you on optimizing CI/CD pipelines.",
+        "default_text": "Your colleague says: 'That state management pattern you implemented in the Nightrunner Engine is brilliant. The immutable state transitions make time-travel debugging so much easier.'"
+      },
+      {
+        "id": 3,
+        "name": "browser",
+        "description": "A web browser window showing your Nightrunner library compiled to WebAssembly.",
+        "default_text": "The browser is running your WebAssembly module smoothly, with the console showing no errors."
+      }
+    ],
+    "narratives": [
+      {
+        "id": 1,
+        "text": "You're in your home office, surrounded by the tools of your trade. Your {laptop} sits on the desk, ready for another day of coding. On the wall is a {whiteboard} with architectural diagrams. Your {portfolio} website is open on a second monitor. Your {coffee mug} is nearby, half-full and still warm.",
+        "description": "Home office description"
+      },
+      {
+        "id": 2,
+        "text": "This is your development workspace, where you build the Nightrunner Engine. Multiple terminal windows are open, and the code for your {rust crate} is visible. A {browser} window shows the WebAssembly output being tested. Your detailed {documentation} is open in another window.",
+        "description": "Development workspace description"
+      },
+      {
+        "id": 3,
+        "text": "You're in a virtual meeting space. Your {laptop} is connected to a video call. A {recruiter} has joined the call to discuss potential opportunities. You have your {portfolio} open, ready to showcase your work.",
+        "description": "Virtual meeting description"
+      },
+      {
+        "id": 4,
+        "text": "This is the debugging zone. Your {laptop} shows multiple files open as you track down a tricky issue described in a {bug report}. Your {colleague} is looking over your shoulder, ready to help brainstorm a solution.",
+        "description": "Debugging zone description"
+      },
+      {
+        "id": 5,
+        "text": "You're at a desk in your virtual office. Your work on streaming solutions using Playwright, FFmpeg, and Go is displayed on your {laptop}. Your {coffee mug} sits nearby, keeping you fueled for complex problem-solving.",
+        "description": "Your virtual workspace"
+      }
+    ],
+    "events": [
+      {
+        "id": 1,
+        "location": 1,
+        "name": "Start coding",
+        "description": "Start working on Nightrunner development",
+        "destination": 2,
+        "narrative": 2,
+        "required_verb": 9,
+        "required_subject": null,
+        "required_item": 1,
+        "completed": false,
+        "add_item": 3,
+        "remove_old_narrative": false,
+        "narrative_after": null,
+        "remove_item": null,
+        "required_events": [],
+        "add_subject": 3,
+        "remove_subject": false,
+        "move_subject_to_location": null
+      },
+      {
+        "id": 2,
+        "location": 1,
+        "name": "Join interview",
+        "description": "Join virtual meeting with recruiter",
+        "destination": 3,
+        "narrative": 3,
+        "required_verb": 10,
+        "required_subject": null,
+        "required_item": 4,
+        "completed": false,
+        "add_item": null,
+        "remove_old_narrative": false,
+        "narrative_after": null,
+        "remove_item": null,
+        "required_events": [],
+        "add_subject": 1,
+        "remove_subject": false,
+        "move_subject_to_location": null
+      },
+      {
+        "id": 3,
+        "location": 2,
+        "name": "Debug issue",
+        "description": "Start debugging a reported issue",
+        "destination": 4,
+        "narrative": 4,
+        "required_verb": 9,
+        "required_item": 3,
+        "required_subject": 3,
+        "completed": false,
+        "add_item": 6,
+        "remove_old_narrative": false,
+        "narrative_after": null,
+        "remove_item": null,
+        "required_events": [],
+        "add_subject": 2,
+        "remove_subject": false,
+        "move_subject_to_location": null
+      },
+      {
+        "id": 4,
+        "location": 3,
+        "name": "Discuss experience",
+        "description": "Discuss your work experience with recruiter",
+        "destination": 5,
+        "narrative": 5,
+        "required_verb": 8,
+        "required_subject": 1,
+        "required_item": null,
+        "completed": false,
+        "add_item": null,
+        "remove_old_narrative": false,
+        "narrative_after": null,
+        "remove_item": null,
+        "required_events": [],
+        "add_subject": null,
+        "remove_subject": false,
+        "move_subject_to_location": null
+      },
+      {
+        "id": 5,
+        "location": 2,
+        "name": "Write documentation",
+        "description": "Document your code",
+        "destination": null,
+        "narrative": null,
+        "required_verb": 10,
+        "required_subject": null,
+        "required_item": 3,
+        "completed": false,
+        "add_item": 7,
+        "remove_old_narrative": false,
+        "narrative_after": null,
+        "remove_item": null,
+        "required_events": [],
+        "add_subject": null,
+        "remove_subject": false,
+        "move_subject_to_location": null
+      }
+    ],
+    "intro": "Welcome to 'A Day in the Life of Aimeri'! In this text adventure, you'll experience the professional world of Aimeri Baddouh, a Senior Software Engineer with expertise in DevOps, full-stack development, and Rust programming. Navigate through different work environments, interact with technologies, and discover the projects that showcase Aimeri's skills. Type 'help' for available commands, and begin your journey in Aimeri's home office.",
+    "room_blueprints": [
+      {
+        "id": 1,
+        "name": "Home Office",
+        "description": "Your comfortable home office setup",
+        "exits": [
+          {
+            "room_id": 2,
+            "direction": "east"
+          }
+        ],
+        "item_ids": [1, 2, 4, 5],
+        "narrative": 1,
+        "subject_ids": []
+      },
+      {
+        "id": 2,
+        "name": "Development Workspace",
+        "description": "Where you build the Nightrunner Engine",
+        "exits": [
+          {
+            "room_id": 1,
+            "direction": "west"
+          },
+          {
+            "room_id": 4,
+            "direction": "north"
+          }
+        ],
+        "item_ids": [1],
+        "narrative": 2,
+        "subject_ids": []
+      },
+      {
+        "id": 3,
+        "name": "Virtual Meeting",
+        "description": "Online meeting space",
+        "exits": [
+          {
+            "room_id": 1,
+            "direction": "south"
+          }
+        ],
+        "item_ids": [1, 4],
+        "narrative": 3,
+        "subject_ids": []
+      },
+      {
+        "id": 4,
+        "name": "Debugging Zone",
+        "description": "Area focused on fixing bugs",
+        "exits": [
+          {
+            "room_id": 2,
+            "direction": "south"
+          },
+          {
+            "room_id": 5,
+            "direction": "east"
+          }
+        ],
+        "item_ids": [1],
+        "narrative": 4,
+        "subject_ids": []
+      },
+      {
+        "id": 5,
+        "name": "Your Workspace",
+        "description": "Your virtual workspace",
+        "exits": [
+          {
+            "room_id": 4,
+            "direction": "west"
+          }
+        ],
+        "item_ids": [1, 2],
+        "narrative": 5,
+        "subject_ids": []
+      }
+    ]
+  }

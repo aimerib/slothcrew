@@ -1,0 +1,28 @@
+---
+layout: base.njk
+---
+
+<div class="game-section">
+  <div class="container">
+    <header class="page-header">
+      <h1>{{ title }}</h1>
+      <p class="description">Experience a day in the life of a software engineer through this interactive text adventure. Explore my skills, projects, and professional journey by typing commands and navigating the virtual world. This is an interactive demo of the Nightrunner Engine which powers this game.</p>
+    </header>
+    
+    <div class="game-wrapper">
+      {% include "game-interface.html" %}
+    </div>
+    
+    <div class="game-footer">
+      <p>Built with the <a href="https://github.com/aimerib/nightrunner-lib" target="_blank">Nightrunner Engine</a>, my text adventure library written in Rust and compiled to WebAssembly.</p>
+      
+      <div class="game-actions">
+        <button id="reset-game" class="btn btn-outline">Reset Game</button>
+        <a href="/#work" class="btn btn-primary">View Other Projects</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="/assets/css/game.css">
+<script type="module" src="/assets/js/game.js"></script>

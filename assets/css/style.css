@@ -160,6 +160,7 @@ ul {
 .btn-outline {
   border: 2px solid var(--color-light);
   background-color: transparent;
+  color: var(--color-light);
 }
 
 .btn-outline:hover {
@@ -584,7 +585,16 @@ nav {
 
 .work-links {
   display: flex;
-  gap: 2rem;
+  gap: 5rem;
+}
+
+.work-link-group {
+  display: grid;
+  gap: 1rem;
+  max-width: 45px;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
 }
 
 .work-links a {
@@ -611,6 +621,13 @@ nav {
 .work-links a:hover {
   background-color: var(--color-primary);
   transform: translateY(-5px);
+}
+
+.work-link-text:hover {
+  background-color: var(--color-dark) !important;
+}
+.work-link-text {
+  color: var(--color-primary) !important;
 }
 
 .work-title {
