@@ -13,6 +13,17 @@ export default function(eleventyConfig) {
 			publicDir: 'public',
       plugins: [wasm(), topLevelAwait()],
 			clearScreen: false,
+      server: {
+				mode: 'development',
+				middlewareMode: true,
+			},
+			appType: 'custom',
+			assetsInclude: ['**/*.xml', '**/*.txt'],
+			build: {
+				mode: 'production',
+				sourcemap: 'true',
+				manifest: true
+			}
 		}
 	})
   eleventyConfig.addPassthroughCopy("assets");
