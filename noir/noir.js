@@ -12,7 +12,7 @@ function initGallery() {
   
   const cloudinaryUrl = 'https://res.cloudinary.com/slothcrew/image/list/slothcrewnoir.json';
   const thumbnailSize = window.innerWidth <= 768 ? 300 : 400;
-  const thumbnailUrl = `https://res.cloudinary.com/slothcrew/image/upload/c_fill,g_auto,w_${thumbnailSize},h_${thumbnailSize}/`;
+  const thumbnailUrl = `https://res.cloudinary.com/slothcrew/image/upload/c_fill,g_auto,w_${thumbnailSize},h_${thumbnailSize},f_auto,q_auto/`;
   
   loader.style.display = 'flex';
   
@@ -23,7 +23,7 @@ function initGallery() {
       
       data.resources.forEach((resource, index) => {
         const imageUrl = thumbnailUrl + resource.public_id + '.' + resource.format;
-        const fullImageUrl = `https://res.cloudinary.com/slothcrew/image/upload/${resource.public_id}.${resource.format}`;
+        const fullImageUrl = `https://res.cloudinary.com/slothcrew/image/upload/f_auto,q_auto/${resource.public_id}.${resource.format}`;
         
         const galleryItem = document.createElement('div');
         galleryItem.className = 'gallery-item';
@@ -120,6 +120,12 @@ function openLightbox(imageUrl) {
 
 function closeLightbox() {
   const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxDownload = document.getElementById('lightbox-download');
+  
+  lightboxImg.src = "";
+  
+  lightboxDownload.href = "";
   
   lightbox.classList.remove('active');
   
