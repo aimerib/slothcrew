@@ -18,52 +18,38 @@ class TextAdventureGame {
   
   async initialize() {
     try {
-      this.displayMessage("Initializing game engine...", "system");
-      
+      this.showLoadingIndicator();
+      await new Promise(resolve => setTimeout(resolve, 500));
       this.engine = new NightRunner(JSON.stringify(gameData));
-      
-      const introText = this.engine.game_intro();
-      this.displayMessage(introText, "intro");
-      
+      await this.typewriterEffect(this.engine.game_intro(), "intro");
       const firstRoomResult = this.engine.first_room_text();
       const firstRoomData = JSON.parse(JSON.stringify(firstRoomResult));
-      
-      this.displayMessage(firstRoomData.message, "look");
-      
+      await this.typewriterEffect(firstRoomData.message, "look");
       this.isInitialized = true;
       this.inputElement.focus();
-      
+      this.hideLoadingIndicator();
       return true;
     } catch (error) {
       console.error("Failed to initialize game engine:", error);
-      this.displayError("Failed to initialize the text adventure engine. Please check the console for details.");
+      this.hideLoadingIndicator();
+      this.displayError("Game initialization failed. Please try refreshing the page.");
       return false;
     }
   }
   
-  processCommand(command) {
-    if (!this.isInitialized) {
-      this.displayError("Game engine is not yet initialized. Please wait...");
-      return;
-    }
-    
+  async processCommand(command) {
+    if (!command.trim()) return;
+    this.displayMessage(`> ${command}`, "command");
+    this.history.push(command);
+    this.historyIndex = this.history.length;
     try {
-      command = command.toLowerCase();
-      this.displayMessage(`> ${command}`, "command");
-      
-      this.history.push(command);
-      
       const result = this.engine.parse(command);
-      
-      const parsedResult = JSON.parse(JSON.stringify(result));
-      
-      this.displayResult(parsedResult);
-      
-      this.inputElement.value = "";
-      this.inputElement.focus();
+      this.displayResult(result);
     } catch (error) {
       this.displayError(error.message);
     }
+    this.inputElement.value = "";
+    this.inputElement.focus();
   }
   
   displayResult(result) {
@@ -71,31 +57,31 @@ class TextAdventureGame {
     
     switch (messageType) {
       case "look":
-        this.displayMessage(data, "look");
+        this.typewriterEffect(data, "look");
         break;
       case "inventory":
-        this.displayMessage(data, "inventory");
+        this.typewriterEffect(data, "inventory");
         break;
       case "help":
-        this.displayMessage(data, "help");
+        this.typewriterEffect(data, "help");
         break;
       case "new_item":
-        this.displayMessage(data, "item");
+        this.typewriterEffect(data, "item");
         break;
       case "drop_item":
-        this.displayMessage(data, "item");
+        this.typewriterEffect(data, "item");
         break;
       case "event_success":
-        this.displayMessage(data.message, "event");
+        this.typewriterEffect(data.message, "event");
         break;
       case "subject_no_event":
-        this.displayMessage(data, "talk");
+        this.typewriterEffect(data, "talk");
         break;
       case "quit":
-        this.displayMessage("Thanks for playing! Refresh the page to start again.", "system");
+        this.typewriterEffect("Thanks for playing! Refresh the page to start again.", "system");
         break;
       default:
-        this.displayMessage(data, "default");
+        this.typewriterEffect(data, "default");
     }
   }
   
@@ -117,7 +103,7 @@ class TextAdventureGame {
     errorElement.textContent = message;
     
     this.outputElement.appendChild(errorElement);
-    this.outputElement.scrollTop = this.outputElement.scrollHeight;
+    this.outputElement.parentElement.scrollTop = this.outputElement.scrollHeight * 2;
   }
   
   processMessageForHighlighting(message) {
@@ -142,10 +128,41 @@ class TextAdventureGame {
     
     this.initialize();
   }
+  
+  async typewriterEffect(text, type) {
+    const messageElement = document.createElement("div");
+    messageElement.className = `game-message ${type}`;
+    this.outputElement.appendChild(messageElement);
+    let index = 0;
+    return new Promise(resolve => {
+      const interval = setInterval(() => {
+        messageElement.textContent = text.slice(0, index);
+        index++;
+        this.outputElement.parentElement.scrollTop = this.outputElement.scrollHeight
+
+        if (index > text.length) {
+          clearInterval(interval);
+          this.outputElement.parentElement.scrollTop = this.outputElement.scrollHeight
+          resolve();
+        }
+      }, 5);
+    });
+  }
+  
+  showLoadingIndicator() {
+    const loader = document.createElement("div");
+    loader.className = "loading-spinner";
+    this.outputElement.appendChild(loader);
+  }
+  
+  hideLoadingIndicator() {
+    const loader = this.outputElement.querySelector(".loading-spinner");
+    if (loader) loader.remove();
+  }
 }
 
 
-function initGame() {
+async function initGame() {
   console.log("DOMContentLoaded")
   const outputElement = document.getElementById("game-output");
   const inputElement = document.getElementById("game-input");
@@ -159,11 +176,11 @@ function initGame() {
     }
   });
   
-  gameForm.addEventListener("submit", (event) => {
+  gameForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const command = inputElement.value.trim();
     if (command) {
-      game.processCommand(command);
+      await game.processCommand(command);
     }
   });
   
@@ -175,15 +192,27 @@ function initGame() {
   
   inputElement.addEventListener("keydown", (event) => {
     if (event.key === "ArrowUp") {
-      const prevCommand = game.history[game.history.length - 1];
-      if (prevCommand) {
-        inputElement.value = prevCommand;
-        setTimeout(() => {
-          inputElement.selectionStart = inputElement.selectionEnd = inputElement.value.length;
-        }, 0);
+      event.preventDefault();
+      if (game.historyIndex > 0) {
+        game.historyIndex--;
+        inputElement.value = game.history[game.historyIndex] || "";
+      }
+    } else if (event.key === "ArrowDown") {
+      event.preventDefault();
+      if (game.historyIndex < game.history.length - 1) {
+        game.historyIndex++;
+        inputElement.value = game.history[game.historyIndex] || "";
       }
     }
   });
+  
+  document.querySelectorAll(".game-command").forEach(cmd => {
+    cmd.addEventListener("click", () => {
+      const commandText = cmd.querySelector("strong").textContent;
+      inputElement.value = commandText;
+      inputElement.focus();
+    });
+  });
 }
 
-initGame()
+await initGame()
