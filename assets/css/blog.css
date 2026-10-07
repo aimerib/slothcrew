@@ -215,6 +215,44 @@
   border-radius: 6px;
 }
 
+.post-content table {
+  width: 100%;
+  margin-block: 2rem;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  font-variant-numeric: tabular-nums;
+}
+
+.post-content th,
+.post-content td {
+  padding: 0.65rem 0.75rem 0.65rem 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+}
+
+.post-content th {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  border-bottom-color: var(--rule-strong);
+}
+
+.post-content td:last-child,
+.post-content th:last-child {
+  padding-right: 0;
+}
+
+@media (max-width: 600px) {
+  .post-content table {
+    font-size: 0.8125rem;
+  }
+}
+
 .post-content hr {
   border: 0;
   border-top: 1px solid var(--rule);
