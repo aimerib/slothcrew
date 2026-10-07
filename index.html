@@ -20,7 +20,7 @@ bodyClass: home
         <dl class="hero-facts">
             <div>
                 <dt>Now</dt>
-                <dd>AI at ServicePros</dd>
+                <dd>AI at ServicePros, since 2025</dd>
             </div>
             <div>
                 <dt>Before</dt>
@@ -28,7 +28,7 @@ bodyClass: home
             </div>
             <div>
                 <dt>On the side</dt>
-                <dd>Nightrunner, a text-adventure engine in Rust</dd>
+                <dd><a href="{{ site.social.huggingface }}">Open models &amp; datasets<span aria-hidden="true">&nbsp;↗</span></a></dd>
             </div>
             <div>
                 <dt>Also</dt>
@@ -72,9 +72,109 @@ bodyClass: home
         <p class="section-label"><span>02</span>Work</p>
         <div class="section-main">
             <h2 class="section-title" id="work-title">Selected work.</h2>
-            <p class="section-intro">Side projects, all open source.</p>
+            <p class="section-intro">Most of my AI work is public on Hugging Face: models, datasets, and the tools
+                around them. The names are a little silly. The work is earnest.</p>
 
             <div class="projects">
+                <article class="project" data-reveal>
+                    <div class="project-text">
+                        <p class="project-meta">Fine-tuning · CPT, SFT &amp; DPO · Open weights</p>
+                        <h3 class="project-title">SpoomplesMaxx models</h3>
+                        <p>A family of open-weight creative-writing and roleplay models, trained with continued
+                            pretraining, SFT, and DPO on Qwen, Gemma, Mistral, Granite, GLM, and Seed-OSS bases and
+                            released with GGUF and MLX quantizations. It includes Cardmaker, a full fine-tune of
+                            Ministral 3 14B that turns a one-line idea into a complete SillyTavern character card.</p>
+                        <ul class="project-links">
+                            <li><a class="link-arrow" href="https://huggingface.co/aimeri/spoomplesmaxx-thrasher-24B">Thrasher 24B <span aria-hidden="true">↗</span></a></li>
+                            <li><a class="link-arrow" href="https://huggingface.co/aimeri/spoomplesmaxx-cardmaker-v2">Cardmaker v2 <span aria-hidden="true">↗</span></a></li>
+                            <li><a class="link-arrow" href="{{ site.social.huggingface }}">All models <span aria-hidden="true">↗</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="project-spec">
+                        <p class="spec-figure">14K+</p>
+                        <p class="spec-caption">downloads of the most popular release, Thrasher 24B (GGUF)</p>
+                        <dl>
+                            <div><dt>Bases</dt><dd>Qwen · Gemma · Mistral · Granite · GLM · Seed-OSS</dd></div>
+                            <div><dt>Training</dt><dd>CPT → SFT → DPO</dd></div>
+                            <div><dt>Releases</dt><dd>Safetensors · GGUF · MLX</dd></div>
+                        </dl>
+                    </div>
+                </article>
+
+                <article class="project" data-reveal>
+                    <div class="project-text">
+                        <p class="project-meta">Python · Training data · LLM evaluation</p>
+                        <h3 class="project-title">aviary &amp; rp_judge</h3>
+                        <p>The tooling behind the models. aviary builds fine-tuning data from agentic task runs,
+                            fiction, and simulated conversations, and every sample passes verifiers and judge gates
+                            before it's kept. rp_judge is an LLM judge that has to pass its own checks (perturbation
+                            probes and agreement with hand-labeled pairs) before its scores are trusted. It runs A/B
+                            tests, ranks checkpoints, and supplies GRPO rewards.</p>
+                        <ul class="project-links">
+                            <li><a class="link-arrow" href="https://github.com/aimerib/aviary">aviary <span aria-hidden="true">↗</span></a></li>
+                            <li><a class="link-arrow" href="https://github.com/aimerib/rp_judge">rp_judge <span aria-hidden="true">↗</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="project-spec">
+                        <ol class="spec-flow" aria-label="aviary pipeline">
+                            <li>Agentic runs · fiction · simulated chats</li>
+                            <li>Verifiers and judge gates</li>
+                            <li>ChatML with tool calls, plus DPO pairs</li>
+                        </ol>
+                        <dl>
+                            <div><dt>rp_judge modes</dt><dd>Pairwise · groupwise · pointwise</dd></div>
+                            <div><dt>Used for</dt><dd>A/B tests · checkpoint ranking · GRPO rewards</dd></div>
+                        </dl>
+                    </div>
+                </article>
+
+                <article class="project" data-reveal>
+                    <div class="project-text">
+                        <p class="project-meta">Datasets · Low-resource languages</p>
+                        <h3 class="project-title">Ticuna and Kichwa corpora</h3>
+                        <p>Data for two under-resourced languages of the Amazon. The Ticuna corpus combines parallel
+                            Ticuna–Spanish–Portuguese text, monolingual text, and a lexicon with the dictionary's tone
+                            notation, with the orthography tagged on every row. The Kichwa set consolidates and repairs
+                            three existing community uploads of a Napo Kichwa–Spanish dictionary into one documented,
+                            license-separated dataset.</p>
+                        <ul class="project-links">
+                            <li><a class="link-arrow" href="https://huggingface.co/datasets/aimeri/ticuna-spanish-portuguese">Ticuna corpus <span aria-hidden="true">↗</span></a></li>
+                            <li><a class="link-arrow" href="https://huggingface.co/datasets/aimeri/kichwa-spanish">Kichwa–Spanish <span aria-hidden="true">↗</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="project-spec">
+                        <p class="spec-figure">47K</p>
+                        <p class="spec-caption">Ticuna–Spanish–Portuguese parallel pairs</p>
+                        <dl>
+                            <div><dt>Ticuna (tca)</dt><dd>48K monolingual · 11.5K lexicon entries · 53K instructions</dd></div>
+                            <div><dt>Kichwa (qvo)</dt><dd>13.9K parallel pairs · 6.4K instructions</dd></div>
+                        </dl>
+                    </div>
+                </article>
+
+                <article class="project" data-reveal>
+                    <div class="project-text">
+                        <p class="project-meta">Datasets · One idea each</p>
+                        <h3 class="project-title">Training-data experiments</h3>
+                        <p>Small datasets that each test one idea about how data shapes a model. Olivia-Sys rewrites a
+                            chat dataset without the hedging, sycophantic assistant voice. repremover-xl puts
+                            supervision at the exact turn where a model starts repeating itself. rp-reasoning adds
+                            writer's-scratchpad reasoning so long stories stay coherent.</p>
+                        <ul class="project-links">
+                            <li><a class="link-arrow" href="https://huggingface.co/datasets/aimeri/Olivia-Sys">Olivia-Sys <span aria-hidden="true">↗</span></a></li>
+                            <li><a class="link-arrow" href="https://huggingface.co/datasets/aimeri/repremover-xl">repremover-xl <span aria-hidden="true">↗</span></a></li>
+                            <li><a class="link-arrow" href="https://huggingface.co/datasets/aimeri/rp-reasoning">rp-reasoning <span aria-hidden="true">↗</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="project-spec">
+                        <dl>
+                            <div><dt>Olivia-Sys</dt><dd>3,886 conversations in a direct, less assistant-coded voice</dd></div>
+                            <div><dt>repremover-xl</dt><dd>7,281 conversations cut where the model looped, with a rewritten turn</dd></div>
+                            <div><dt>rp-reasoning</dt><dd>9,621 multi-turn conversations with reasoning traces</dd></div>
+                        </dl>
+                    </div>
+                </article>
+
                 <article class="project" data-reveal>
                     <div class="project-text">
                         <p class="project-meta">Rust · WebAssembly · Game engine</p>
@@ -94,41 +194,26 @@ bodyClass: home
                             alt="Screenshot of a Nightrunner text adventure" loading="lazy" decoding="async">
                     </div>
                 </article>
-
-                <article class="project" data-reveal>
-                    <div class="project-text">
-                        <p class="project-meta">Tauri · React · Rust · Desktop</p>
-                        <h3 class="project-title">Nightrunner Editor</h3>
-                        <p>A retro-futuristic desktop app, built with Tauri and React, for writing interactive fiction
-                            that runs on the Nightrunner Engine.</p>
-                        <ul class="project-links">
-                            <li><a class="link-arrow" href="https://github.com/aimerib/nightrunner-editor">Source <span aria-hidden="true">↗</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="project-media">
-                        <img src="https://res.cloudinary.com/slothcrew/image/upload/f_auto,q_auto,c_limit,w_960/v1524112915/portfoliopics/nightrunner-editor.png"
-                            alt="Screenshot of the Nightrunner Editor" loading="lazy" decoding="async">
-                    </div>
-                </article>
-
-                <article class="project" data-reveal>
-                    <div class="project-text">
-                        <p class="project-meta">Node.js · Puppeteer · Open source</p>
-                        <h3 class="project-title">Puppeteer GIF Cast</h3>
-                        <p>A Node.js library that records a website as it scrolls and turns it into an animated GIF,
-                            handy for documentation and demos.</p>
-                        <ul class="project-links">
-                            <li><a class="link-arrow" href="https://github.com/aimerib/puppeteer-gif-cast">Source <span aria-hidden="true">↗</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="project-media">
-                        <img src="https://raw.githubusercontent.com/aimerib/aimerib.github.io/master/images/every-last-drop.gif"
-                            alt="Animated GIF of a website scrolling, recorded with Puppeteer GIF Cast" loading="lazy" decoding="async">
-                    </div>
-                </article>
             </div>
 
-            <p class="section-more"><a class="link-arrow" href="{{ site.social.github }}">More on GitHub <span aria-hidden="true">↗</span></a></p>
+            <div class="earlier">
+                <h3 class="subhead">Earlier</h3>
+                <ul class="earlier-list">
+                    <li>
+                        <a href="https://github.com/aimerib/nightrunner-editor">Nightrunner Editor<span aria-hidden="true">&nbsp;↗</span></a>
+                        <span>A retro-futuristic Tauri and React desktop app for writing Nightrunner games.</span>
+                    </li>
+                    <li>
+                        <a href="https://github.com/aimerib/puppeteer-gif-cast">Puppeteer GIF Cast<span aria-hidden="true">&nbsp;↗</span></a>
+                        <span>A Node.js library that records a website as it scrolls and turns it into a GIF.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <p class="section-more">
+                <a class="link-arrow" href="{{ site.social.huggingface }}">Hugging Face <span aria-hidden="true">↗</span></a>
+                <a class="link-arrow" href="{{ site.social.github }}">GitHub <span aria-hidden="true">↗</span></a>
+            </p>
         </div>
     </div>
 </section>
@@ -147,8 +232,10 @@ bodyClass: home
                         Playwright, FFmpeg, and Go, modernizing code-signing infrastructure, and building geolocation
                         features. In my first stint at ServicePros I led the modernization of legacy systems and rebuilt
                         the CI/CD pipelines.</p>
-                    <p>Outside work I build <a href="https://github.com/aimerib/nightrunner-lib">Nightrunner</a>, a
-                        text-adventure engine in Rust, and I photograph people and products. That work lives at
+                    <p>Outside work I train open models and build datasets, which I publish on
+                        <a href="{{ site.social.huggingface }}">Hugging Face</a>, and I keep working on
+                        <a href="https://github.com/aimerib/nightrunner-lib">Nightrunner</a>, a text-adventure engine in
+                        Rust. I also photograph people and products; that work lives at
                         <a href="https://aimeribaddouh.com">aimeribaddouh.com</a>.</p>
                 </div>
                 <figure class="about-portrait">
@@ -162,11 +249,14 @@ bodyClass: home
                     <h3 class="subhead">Experience</h3>
                     <ol class="timeline">
                         <li class="timeline-item is-current">
-                            <span class="timeline-date">Now</span>
+                            <span class="timeline-date">2025 – Now</span>
                             <div>
                                 <h4>ServicePros Installation Group</h4>
                                 <p class="timeline-role">AI implementation, research &amp; education</p>
-                                <p>Returned to work on AI end to end: building with it, studying it, and teaching it.</p>
+                                <p>Building Claude workflows for the team, using Amazon Bedrock to bring AI into complex
+                                    processes like contract verification, and rolling out vendor AI tools that integrate
+                                    deeply with our chat, inventory, and scheduling systems. Also teaching the team to use
+                                    all of it well.</p>
                             </div>
                         </li>
                         <li class="timeline-item">
@@ -193,8 +283,20 @@ bodyClass: home
                     <h3 class="subhead">Toolbox</h3>
                     <dl class="toolbox">
                         <div>
+                            <dt>AI platforms</dt>
+                            <dd>Claude, Amazon Bedrock, Hugging Face</dd>
+                        </div>
+                        <div>
+                            <dt>Model training</dt>
+                            <dd>Transformers, TRL, Unsloth, Axolotl, PEFT &amp; LoRA</dd>
+                        </div>
+                        <div>
+                            <dt>Inference</dt>
+                            <dd>vLLM, llama.cpp (GGUF), MLX</dd>
+                        </div>
+                        <div>
                             <dt>Languages</dt>
-                            <dd>Ruby, JavaScript, TypeScript, Go, Rust, Elixir</dd>
+                            <dd>Python, Ruby, JavaScript, TypeScript, Go, Rust, Elixir</dd>
                         </div>
                         <div>
                             <dt>Web</dt>
@@ -202,7 +304,7 @@ bodyClass: home
                         </div>
                         <div>
                             <dt>Infrastructure</dt>
-                            <dd>Docker, AWS, CI/CD, DevOps</dd>
+                            <dd>Docker, AWS, CI/CD, GPU training on RunPod and Vast.ai</dd>
                         </div>
                         <div>
                             <dt>Craft</dt>
@@ -246,6 +348,10 @@ bodyClass: home
                             <dd><a href="{{ site.social.github }}">github.com/aimerib</a></dd>
                         </div>
                         <div>
+                            <dt>Hugging Face</dt>
+                            <dd><a href="{{ site.social.huggingface }}">huggingface.co/aimeri</a></dd>
+                        </div>
+                        <div>
                             <dt>LinkedIn</dt>
                             <dd><a href="{{ site.social.linkedin }}">in/aimeri-baddouh</a></dd>
                         </div>
@@ -287,7 +393,7 @@ bodyClass: home
   "url": "{{ site.url }}/",
   "jobTitle": "Senior Software Engineer",
   "worksFor": { "@type": "Organization", "name": "ServicePros Installation Group" },
-  "knowsAbout": ["Artificial intelligence", "Software engineering", "Ruby on Rails", "Rust", "DevOps"],
-  "sameAs": ["{{ site.social.github }}", "{{ site.social.linkedin }}", "https://aimeribaddouh.com"]
+  "knowsAbout": ["Artificial intelligence", "Large language models", "Fine-tuning", "Software engineering", "Ruby on Rails", "Rust", "DevOps"],
+  "sameAs": ["{{ site.social.github }}", "{{ site.social.huggingface }}", "{{ site.social.linkedin }}", "https://aimeribaddouh.com"]
 }
 </script>

@@ -727,6 +727,125 @@ button, input, textarea {
   transform: scale(1.03);
 }
 
+/* Stat panel, used in place of an image for models and datasets */
+.project-spec {
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
+.spec-figure {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 2.5rem + 3vw, 5rem);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  color: var(--accent-ink);
+}
+
+.spec-caption {
+  margin-top: -0.5rem;
+  font-size: 0.9375rem;
+  color: var(--fg-2);
+}
+
+.project-spec dl {
+  display: grid;
+}
+
+.project-spec dl > div {
+  display: grid;
+  gap: 0.2rem;
+  padding-block: 0.7rem;
+  border-top: 1px solid var(--rule);
+}
+
+.project-spec dl > div:last-child {
+  padding-bottom: 0;
+}
+
+.project-spec > dl:first-child > div:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.project-spec dt {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.project-spec dd {
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.spec-flow {
+  display: grid;
+  gap: 0.35rem;
+  counter-reset: flow;
+}
+
+.spec-flow li {
+  position: relative;
+  padding: 0.6rem 0.8rem 0.6rem 2.4rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  counter-increment: flow;
+}
+
+.spec-flow li::before {
+  content: counter(flow);
+  position: absolute;
+  left: 0.85rem;
+  top: 0.6rem;
+  color: var(--accent-ink);
+}
+
+.earlier {
+  margin-top: 3rem;
+}
+
+.earlier-list li {
+  display: grid;
+  gap: 0.2rem 2rem;
+  padding-block: 0.9rem;
+  border-top: 1px solid var(--rule);
+}
+
+.earlier-list a {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.earlier-list span:not([aria-hidden]) {
+  font-size: 0.9375rem;
+  color: var(--fg-2);
+}
+
+@media (min-width: 700px) {
+  .earlier-list li {
+    grid-template-columns: 14rem minmax(0, 1fr);
+    align-items: baseline;
+  }
+}
+
+.section-more {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+}
+
 @media (min-width: 820px) {
   .project {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
