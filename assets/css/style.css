@@ -786,32 +786,6 @@ button, input, textarea {
   line-height: 1.45;
 }
 
-.spec-flow {
-  display: grid;
-  gap: 0.35rem;
-  counter-reset: flow;
-}
-
-.spec-flow li {
-  position: relative;
-  padding: 0.6rem 0.8rem 0.6rem 2.4rem;
-  border: 1px solid var(--rule);
-  border-radius: 4px;
-  background: var(--bg);
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  line-height: 1.4;
-  counter-increment: flow;
-}
-
-.spec-flow li::before {
-  content: counter(flow);
-  position: absolute;
-  left: 0.85rem;
-  top: 0.6rem;
-  color: var(--accent-ink);
-}
-
 .earlier {
   margin-top: 3rem;
 }

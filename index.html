@@ -72,8 +72,8 @@ bodyClass: home
         <p class="section-label"><span>02</span>Work</p>
         <div class="section-main">
             <h2 class="section-title" id="work-title">Selected work.</h2>
-            <p class="section-intro">Most of my AI work is public on Hugging Face: models, datasets, and the tools
-                around them. The names are a little silly. The work is earnest.</p>
+            <p class="section-intro">Most of my AI work is public on Hugging Face: models and datasets. The names are
+                a little silly. The work is earnest.</p>
 
             <div class="projects">
                 <article class="project" data-reveal>
@@ -97,33 +97,6 @@ bodyClass: home
                             <div><dt>Bases</dt><dd>Qwen · Gemma · Mistral · Granite · GLM · Seed-OSS</dd></div>
                             <div><dt>Training</dt><dd>CPT → SFT → DPO</dd></div>
                             <div><dt>Releases</dt><dd>Safetensors · GGUF · MLX</dd></div>
-                        </dl>
-                    </div>
-                </article>
-
-                <article class="project" data-reveal>
-                    <div class="project-text">
-                        <p class="project-meta">Python · Training data · LLM evaluation</p>
-                        <h3 class="project-title">aviary &amp; rp_judge</h3>
-                        <p>The tooling behind the models. aviary builds fine-tuning data from agentic task runs,
-                            fiction, and simulated conversations, and every sample passes verifiers and judge gates
-                            before it's kept. rp_judge is an LLM judge that has to pass its own checks (perturbation
-                            probes and agreement with hand-labeled pairs) before its scores are trusted. It runs A/B
-                            tests, ranks checkpoints, and supplies GRPO rewards.</p>
-                        <ul class="project-links">
-                            <li><a class="link-arrow" href="https://github.com/aimerib/aviary">aviary <span aria-hidden="true">↗</span></a></li>
-                            <li><a class="link-arrow" href="https://github.com/aimerib/rp_judge">rp_judge <span aria-hidden="true">↗</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="project-spec">
-                        <ol class="spec-flow" aria-label="aviary pipeline">
-                            <li>Agentic runs · fiction · simulated chats</li>
-                            <li>Verifiers and judge gates</li>
-                            <li>ChatML with tool calls, plus DPO pairs</li>
-                        </ol>
-                        <dl>
-                            <div><dt>rp_judge modes</dt><dd>Pairwise · groupwise · pointwise</dd></div>
-                            <div><dt>Used for</dt><dd>A/B tests · checkpoint ranking · GRPO rewards</dd></div>
                         </dl>
                     </div>
                 </article>
@@ -158,19 +131,16 @@ bodyClass: home
                         <h3 class="project-title">Training-data experiments</h3>
                         <p>Small datasets that each test one idea about how data shapes a model. Olivia-Sys rewrites a
                             chat dataset without the hedging, sycophantic assistant voice. repremover-xl puts
-                            supervision at the exact turn where a model starts repeating itself. rp-reasoning adds
-                            writer's-scratchpad reasoning so long stories stay coherent.</p>
+                            supervision at the exact turn where a model starts repeating itself.</p>
                         <ul class="project-links">
                             <li><a class="link-arrow" href="https://huggingface.co/datasets/aimeri/Olivia-Sys">Olivia-Sys <span aria-hidden="true">↗</span></a></li>
                             <li><a class="link-arrow" href="https://huggingface.co/datasets/aimeri/repremover-xl">repremover-xl <span aria-hidden="true">↗</span></a></li>
-                            <li><a class="link-arrow" href="https://huggingface.co/datasets/aimeri/rp-reasoning">rp-reasoning <span aria-hidden="true">↗</span></a></li>
                         </ul>
                     </div>
                     <div class="project-spec">
                         <dl>
                             <div><dt>Olivia-Sys</dt><dd>3,886 conversations in a direct, less assistant-coded voice</dd></div>
                             <div><dt>repremover-xl</dt><dd>7,281 conversations cut where the model looped, with a rewritten turn</dd></div>
-                            <div><dt>rp-reasoning</dt><dd>9,621 multi-turn conversations with reasoning traces</dd></div>
                         </dl>
                     </div>
                 </article>
