@@ -1,0 +1,21 @@
+{% macro postList(posts, hideTag="") %}
+<ul class="post-list">
+    {% for post in posts %}
+    <li class="post-row" data-reveal>
+        <a href="{{ post.url }}" class="post-row-link">
+            <time class="post-row-date" datetime="{{ post.date.toISOString().slice(0, 10) }}">{{ post.date | formatDate }}</time>
+            <span class="post-row-body">
+                <span class="post-row-title">{{ post.data.title }}</span>
+                {% if post.data.description %}<span class="post-row-desc">{{ post.data.description }}</span>{% endif %}
+                {% if post.data.tags %}
+                <span class="post-row-tags">
+                    {%- for tag in post.data.tags %}{% if tag != "posts" and tag != hideTag %}<span>{{ tag }}</span>{% endif %}{% endfor -%}
+                </span>
+                {% endif %}
+            </span>
+            <span class="post-row-arrow" aria-hidden="true">→</span>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endmacro %}
