@@ -28,7 +28,6 @@ export default function(eleventyConfig) {
 	})
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("images");
-  eleventyConfig.addPassthroughCopy("noir");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy({"game/": "assets/js/"});
 

@@ -8,6 +8,19 @@
   publish = "_site"
   framework = "#custom"
 
+# Photography moved to its own site
+[[redirects]]
+  from = "/noir"
+  to = "https://aimeribaddouh.com"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/noir/*"
+  to = "https://aimeribaddouh.com"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/404.html"
