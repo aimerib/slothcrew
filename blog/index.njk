@@ -1,47 +1,16 @@
 ---
 layout: base.njk
-title: Blog
+title: Writing
 permalink: /blog/index.html
 ---
-{% from "responsive-image.njk" import responsiveImage %}
+{% from "post-list.njk" import postList %}
 
-<div class="blog-index">
-    <div class="container">
-        <header class="page-header">
-            <h1>Blog</h1>
-            <p class="description">Thoughts, ideas, and projects I'm working on.</p>
-        </header>
+<div class="container">
+    <header class="page-header">
+        <h1>Writing.</h1>
+        <p class="description">Thoughts, ideas, and projects I'm working on.</p>
+        <p class="page-header-links"><a class="link-arrow" href="/blog/tags/">Browse by topic <span aria-hidden="true">→</span></a></p>
+    </header>
 
-        <div class="posts-grid">
-            {% for post in collections.posts | reverse %}
-            <article class="post-card">
-                <a href="{{ post.url }}" class="post-link">
-                    {% if post.data.featured_image %}
-                    <div class="post-image">
-                        {{ responsiveImage(post.data.featured_image, post.data.title, "(min-width: 768px) 350px, 100vw") }}
-                    </div>
-                    {% endif %}
-                    <div class="post-details">
-                        <h2 class="post-title">{{ post.data.title }}</h2>
-                        <time class="post-date" datetime="{{ post.date | safe }}">
-                            {{ post.date | formatDate }}
-                        </time>
-                        {% if post.data.description %}
-                        <p class="post-excerpt">{{ post.data.description }}</p>
-                        {% endif %}
-                        {% if post.data.tags %}
-                        <div class="post-tags">
-                            {% for tag in post.data.tags %}
-                                {% if tag != "posts" %}
-                                <span class="tag">{{ tag }}</span>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                    </div>
-                </a>
-            </article>
-            {% endfor %}
-        </div>
-    </div>
-</div> 
+    {{ postList(collections.posts) }}
+</div>

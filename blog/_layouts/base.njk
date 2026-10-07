@@ -3,81 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+    {%- set pageTitle %}{% if title %}{{ title }} | {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}{% endset %}
+    {%- set pageDescription %}{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}{% endset %}
+    <title>{{ pageTitle | safe }}</title>
+    <meta name="description" content="{{ pageDescription | safe }}">
     <meta name="author" content="{{ site.author }}">
-    <meta name="keywords" content="{% if tags %}{{ tags | join(', ') }}{% endif %}">
-    
+    {% if tags %}<meta name="keywords" content="{{ tags | join(', ') }}">{% endif %}
+    {% if noindex %}<meta name="robots" content="noindex">{% else %}<link rel="canonical" href="{{ site.url }}{{ page.url }}">{% endif %}
+
     <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="{{ title }} | {{ site.title }}">
-    <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
-    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ pageTitle | safe }}">
+    <meta property="og:description" content="{{ pageDescription | safe }}">
+    <meta property="og:type" content="{% if layout == 'post.njk' %}article{% else %}website{% endif %}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-    
+    <meta property="og:site_name" content="{{ site.title }}">
+
     <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ title }} | {{ site.title }}">
-    <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-    
-    <title>{{ title }} | {{ site.title }}</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/blog.css">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ pageTitle | safe }}">
+    <meta name="twitter:description" content="{{ pageDescription | safe }}">
+
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#11110f" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="/images/favicon.ico">
-    <link href="https://unpkg.com/prismjs@1.30.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,400..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    {% if layout == 'post.njk' %}<link href="https://unpkg.com/prismjs@1.30.0/themes/prism-tomorrow.min.css" rel="stylesheet">{% endif %}
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/blog.css">
+    <script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
-    <div class="noise-overlay"></div>
-    <header class="nav-header">
-        <nav class="container">
-            <div class="logo">
-                <a href="/">AB</a>
-            </div>
-            <div class="nav-links" id="nav-links">
-                <a href="/" class="nav-link">Home</a>
-                <a href="/#work" class="nav-link">Work</a>
-                <a href="/#about" class="nav-link">About</a>
-                <a href="/#contact" class="nav-link">Contact</a>
-                <a href="/blog" class="nav-link active">Blog</a>
-                <a href="https://aimeribaddouh.com" class="nav-link nav-link-highlight">Photography</a>
-            </div>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+<body id="top" class="{{ bodyClass }}">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="site-header">
+        <div class="container header-inner">
+            <a href="/" class="wordmark"><span class="wordmark-mark" aria-hidden="true"></span>Aimeri Baddouh</a>
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                <span class="menu-toggle-label">Menu</span>
+                <span class="menu-toggle-icon" aria-hidden="true"></span>
             </button>
-        </nav>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <ul>
+                    <li><a href="/#work">Work</a></li>
+                    <li><a href="/#about">About</a></li>
+                    <li><a href="/blog/"{% if page.url.startsWith('/blog') %} aria-current="page"{% endif %}>Writing</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="https://aimeribaddouh.com" class="nav-external">Photography<span aria-hidden="true">&nbsp;↗</span></a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
+    <main id="main">
         {{ content | safe }}
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">AB</div>
-                <p>&copy; 2025 Aimeri Baddouh. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="https://github.com/aimeri" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-            </div>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p class="footer-copy">&copy; {% year %} {{ site.author }}</p>
+            <ul class="footer-links">
+                <li><a href="{{ site.social.github }}">GitHub<span aria-hidden="true">&nbsp;↗</span></a></li>
+                <li><a href="{{ site.social.linkedin }}">LinkedIn<span aria-hidden="true">&nbsp;↗</span></a></li>
+                <li><a href="https://aimeribaddouh.com">Photography<span aria-hidden="true">&nbsp;↗</span></a></li>
+            </ul>
+            <a class="footer-top" href="#top">Back to top<span aria-hidden="true">&nbsp;↑</span></a>
         </div>
     </footer>
-    
-    <script>
-        // Simple menu toggle for mobile
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            this.classList.toggle('active');
-            document.getElementById('nav-links').classList.toggle('active');
-        });
-    </script>
+
+    <script type="module" src="/assets/js/main.js"></script>
 </body>
-</html> 
+</html>

@@ -62,6 +62,8 @@ export default function(eleventyConfig) {
     return [...tagSet].sort();
   });
   
+  eleventyConfig.addShortcode("year", () => String(new Date().getFullYear()));
+
   eleventyConfig.addFilter("formatDate", function(dateObj) {
     if (typeof dateObj === 'string') {
       dateObj = new Date(dateObj);
