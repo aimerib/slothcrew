@@ -1,0 +1,294 @@
+/*
+  Resume: the /resume/ page and the PDF printed from it (npm run resume:pdf).
+
+  The sheet uses static font files rather than the site's variable fonts:
+  Chromium embeds variable fonts in PDFs as Type 3 glyphs, which some ATS
+  parsers read badly; static fonts are embedded as TrueType with a proper
+  text map. Ligatures are off for the same reason ("fi" stays two letters).
+*/
+
+@font-face {
+  font-family: 'Resume Sans';
+  src: url('../fonts/inter-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Resume Sans';
+  src: url('../fonts/inter-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Resume Sans';
+  src: url('../fonts/inter-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Resume Serif';
+  src: url('../fonts/instrument-serif-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@page {
+  size: letter;
+  margin: 0.42in 0.55in;
+}
+
+/* ------------------------------------------------------------
+   Page chrome (screen only)
+   ------------------------------------------------------------ */
+.resume-page main {
+  padding-bottom: var(--section-space);
+}
+
+.resume-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding-block: clamp(2.5rem, 6vw, 4rem) 1.75rem;
+}
+
+.resume-toolbar .eyebrow {
+  margin: 0;
+}
+
+.resume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+}
+
+/* ------------------------------------------------------------
+   The sheet
+   ------------------------------------------------------------ */
+.resume {
+  --r-ink: #141413;
+  --r-muted: #4a4945;
+  --r-faint: #77756f;
+  --r-rule: rgb(20 20 19 / 0.16);
+  --r-accent: #b33a17;
+
+  width: min(100% - 2 * var(--gutter), 8.5in);
+  margin-inline: auto;
+  padding: 0.55in 0.6in 0.6in;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--r-ink);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.06), 0 14px 40px rgb(0 0 0 / 0.08);
+  font-family: 'Resume Sans', Arial, Helvetica, sans-serif;
+  font-size: 9.3pt;
+  line-height: 1.33;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+  hyphens: manual;
+  text-rendering: optimizeLegibility;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  .resume {
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.06), 0 20px 60px rgb(0 0 0 / 0.5);
+  }
+}
+
+.resume ::selection {
+  background: #f3c9bb;
+  color: var(--r-ink);
+}
+
+.resume a {
+  color: inherit;
+  text-decoration-color: var(--r-rule);
+}
+
+.resume a:hover {
+  color: var(--r-accent);
+  text-decoration-color: currentColor;
+}
+
+.resume :focus-visible {
+  outline-color: var(--r-accent);
+}
+
+/* Header */
+.resume-header {
+  margin-bottom: 9pt;
+  padding-bottom: 8pt;
+  border-bottom: 1.25pt solid var(--r-ink);
+}
+
+.resume-name {
+  font-family: 'Resume Serif', Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  font-size: 3.12em; /* 29pt at the 9.3pt base */
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.resume-headline {
+  margin-top: 5pt;
+  font-size: 1.18em;
+  font-weight: 500;
+  color: var(--r-accent);
+}
+
+.resume-contact {
+  margin-top: 5pt;
+  font-size: 0.946em;
+  line-height: 1.5;
+  color: var(--r-muted);
+}
+
+/* Sections */
+.resume-section + .resume-section {
+  margin-top: 8.5pt;
+}
+
+.resume-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 8pt;
+  margin-bottom: 4pt;
+  font-size: 0.925em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--r-accent);
+}
+
+.resume-section h2::after {
+  content: '';
+  flex: 1;
+  height: 0.75pt;
+  background: var(--r-rule);
+}
+
+.resume-entry + .resume-entry {
+  margin-top: 6pt;
+}
+
+.resume-entry h3 {
+  font-size: 1.097em;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.resume-entry h3 .resume-meta {
+  font-size: 0.882em; /* back to the meta size inside the larger h3 */
+  font-weight: 400;
+}
+
+.resume-meta {
+  font-size: 0.968em;
+  color: var(--r-muted);
+}
+
+.resume-dates {
+  white-space: nowrap;
+}
+
+.resume-entry ul {
+  margin-top: 2pt;
+  padding-left: 12pt;
+  list-style: disc;
+}
+
+.resume-entry li {
+  padding-left: 2pt;
+}
+
+.resume-entry li + li {
+  margin-top: 1pt;
+}
+
+.resume-entry li::marker {
+  color: var(--r-faint);
+}
+
+.resume-line + .resume-line {
+  margin-top: 1.5pt;
+}
+
+.resume-line strong {
+  font-weight: 600;
+}
+
+/* Small screens: full-bleed sheet, readable type */
+@media screen and (max-width: 640px) {
+  .resume {
+    width: 100%;
+    padding: 1.75rem var(--gutter) 2rem;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 0.9375rem;
+  }
+
+  .resume-name {
+    font-size: 2.5rem;
+  }
+
+  .resume-contact {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ------------------------------------------------------------
+   Print / PDF: only the sheet
+   ------------------------------------------------------------ */
+@media print {
+  html,
+  body {
+    background: #fff !important;
+  }
+
+  body {
+    display: block;
+    min-height: 0;
+  }
+
+  .skip-link,
+  .site-header,
+  .site-footer,
+  .resume-toolbar {
+    display: none !important;
+  }
+
+  .resume-page main {
+    padding: 0;
+  }
+
+  .resume {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .resume a {
+    text-decoration: none;
+  }
+
+  .resume-entry,
+  .resume-line {
+    break-inside: avoid;
+  }
+
+  .resume-section h2 {
+    break-after: avoid;
+  }
+}

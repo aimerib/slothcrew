@@ -1,0 +1,88 @@
+---
+layout: base.njk
+title: Resume
+description: Resume of Aimeri Baddouh, senior software engineer focused on applied AI and LLMs. Also available as a PDF.
+permalink: /resume/index.html
+bodyClass: resume-page
+styles:
+  - /assets/css/resume.css
+---
+{#- Content lives in blog/_data/resume.js. The PDF is printed from this page:
+    run `npm run resume:pdf` after editing. -#}
+{%- set r = resume -%}
+<div class="resume-toolbar container">
+    <p class="eyebrow">Resume · Updated {{ r.updated }}</p>
+    <div class="resume-actions">
+        <a class="button" href="{{ r.pdf.path }}" download="{{ r.pdf.downloadName }}">Download PDF</a>
+        <a class="link-arrow" href="/#contact">Get in touch <span aria-hidden="true">→</span></a>
+    </div>
+</div>
+
+<article class="resume" aria-label="Resume of {{ r.name }}">
+    <header class="resume-header">
+        <h1 class="resume-name">{{ r.name }}</h1>
+        <p class="resume-headline">{{ r.headline }}</p>
+        <p class="resume-contact">
+            {{- r.location }} · <a href="mailto:{{ r.email }}">{{ r.email }}</a>
+            {%- if r.phone %} · <a href="tel:{{ r.phone | replace(' ', '') }}">{{ r.phone }}</a>{% endif %}
+            {%- for link in r.links %} · <a href="{{ link.url }}">{{ link.label }}</a>{% endfor -%}
+        </p>
+    </header>
+
+    <section class="resume-section" aria-labelledby="resume-summary">
+        <h2 id="resume-summary">Summary</h2>
+        <p>{{ r.summary }}</p>
+    </section>
+
+    <section class="resume-section" aria-labelledby="resume-experience">
+        <h2 id="resume-experience">Experience</h2>
+        {%- for job in r.experience %}
+        <div class="resume-entry">
+            <h3>{{ job.title }}</h3>
+            <p class="resume-meta">{{ job.company }}{% if job.location %} · {{ job.location }}{% endif %} · <span class="resume-dates">{{ job.start }} – {{ job.end }}</span></p>
+            <ul>
+                {%- for item in job.bullets %}
+                <li>{{ item }}</li>
+                {%- endfor %}
+            </ul>
+        </div>
+        {%- endfor %}
+    </section>
+
+    <section class="resume-section" aria-labelledby="resume-projects">
+        <h2 id="resume-projects">Projects</h2>
+        {%- for project in r.projects %}
+        <div class="resume-entry">
+            <h3>{{ project.name }}{% if project.link %} <span class="resume-meta">· <a href="{{ project.link.url }}">{{ project.link.label }}</a></span>{% endif %}</h3>
+            <ul>
+                {%- for item in project.bullets %}
+                <li>{{ item }}</li>
+                {%- endfor %}
+            </ul>
+        </div>
+        {%- endfor %}
+    </section>
+
+    <section class="resume-section" aria-labelledby="resume-skills">
+        <h2 id="resume-skills">Skills</h2>
+        {%- for skill in r.skills %}
+        <p class="resume-line"><strong>{{ skill.group }}:</strong> {{ skill.items }}</p>
+        {%- endfor %}
+    </section>
+
+    {%- if r.education.length %}
+    <section class="resume-section" aria-labelledby="resume-education">
+        <h2 id="resume-education">Education</h2>
+        {%- for school in r.education %}
+        <p class="resume-line"><strong>{{ school.degree }}</strong>, {{ school.school }}{% if school.year %} · {{ school.year }}{% endif %}</p>
+        {%- endfor %}
+    </section>
+    {%- endif %}
+
+    <section class="resume-section" aria-labelledby="resume-additional">
+        <h2 id="resume-additional">Additional</h2>
+        <p class="resume-line">
+            {%- for line in r.additional %}{% if not loop.first %} · {% endif %}<strong>{{ line.label }}:</strong> {{ line.text }}{% endfor -%}
+        </p>
+    </section>
+</article>
