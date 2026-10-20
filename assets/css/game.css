@@ -7,8 +7,9 @@
 .game-wrapper {
   overflow: hidden;
   border: 1px solid var(--rule-strong);
-  border-radius: 10px;
+  border-radius: var(--radius);
   background: var(--surface);
+  box-shadow: 0 0 3rem rgb(0 229 255 / 0.06), 0 0 6rem rgb(177 77 255 / 0.05);
 }
 
 .game-container {
@@ -29,9 +30,10 @@
 
 .game-header h2 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 500;
   font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
   line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .game-subtitle {
@@ -49,8 +51,12 @@
   margin-bottom: 1.25rem;
   padding: 1.25rem;
   overflow-y: auto;
-  border-radius: 6px;
-  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background:
+    repeating-linear-gradient(to bottom, rgb(0 229 255 / 0.02) 0 1px, transparent 1px 3px),
+    var(--bg);
+  box-shadow: inset 0 0 3rem rgb(0 229 255 / 0.04);
   scroll-behavior: smooth;
   scrollbar-color: var(--rule-strong) transparent;
 }
@@ -78,18 +84,19 @@
   font-size: 0.875rem;
   color: var(--accent-ink);
   border-left-color: var(--accent);
+  text-shadow: 0 0 0.75rem rgb(0 229 255 / 0.35);
 }
 
 .game-message.intro,
 .game-message.event {
-  border-left-color: var(--rule-strong);
+  border-left-color: var(--accent-2);
   background: var(--bg-2);
-  border-radius: 0 6px 6px 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
 }
 
 .game-message.error {
-  border-left-color: #d64545;
-  background: color-mix(in srgb, #d64545 10%, transparent);
+  border-left-color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 10%, transparent);
 }
 
 .game-message.system {
@@ -101,7 +108,7 @@
   font-family: var(--font-mono);
   font-size: 0.875rem;
   background: var(--bg-2);
-  border-radius: 6px;
+  border-radius: var(--radius);
 }
 
 .game-message.item,
@@ -126,14 +133,14 @@
   align-items: center;
   padding: 0 1rem;
   border: 1px solid var(--rule-strong);
-  border-radius: 999px;
+  border-radius: var(--radius);
   background: var(--bg);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .input-group:focus-within {
-  border-color: var(--fg);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgb(0 229 255 / 0.18), 0 0 1.25rem rgb(0 229 255 / 0.15);
 }
 
 .input-prefix {
@@ -185,13 +192,14 @@
 .game-command {
   padding: 0.75rem 0.9rem;
   border: 1px solid var(--rule);
-  border-radius: 6px;
+  border-radius: var(--radius);
   cursor: pointer;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .game-command:hover {
-  border-color: var(--accent-ink);
+  border-color: var(--accent);
+  box-shadow: 0 0 1rem rgb(0 229 255 / 0.15);
 }
 
 .game-command strong {
