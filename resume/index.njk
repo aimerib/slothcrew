@@ -23,7 +23,8 @@ styles:
         <h1 class="resume-name">{{ r.name }}</h1>
         <p class="resume-headline">{{ r.headline }}</p>
         <p class="resume-contact">
-            {{- r.location }} · <a href="mailto:{{ r.email }}">{{ r.email }}</a>
+            {%- if r.location %}{{ r.location }} · {% endif -%}
+            <a href="mailto:{{ r.email }}">{{ r.email }}</a>
             {%- if r.phone %} · <a href="tel:{{ r.phone | replace(' ', '') }}">{{ r.phone }}</a>{% endif %}
             {%- for link in r.links %} · <a href="{{ link.url }}">{{ link.label }}</a>{% endfor -%}
         </p>

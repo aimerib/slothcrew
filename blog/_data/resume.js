@@ -6,8 +6,8 @@
 
 export default {
   name: "Aimeri Baddouh",
-  headline: "Senior Software Engineer · Applied AI & LLMs",
-  location: "Cuenca, Ecuador · Remote",
+  headline: "AI Engineer · LLMs, Fine-Tuning & Evaluation",
+  location: "",
   email: "aimeri@baddouh.com",
   phone: "",
   updated: "October 2026",
@@ -23,14 +23,14 @@ export default {
   ],
 
   summary:
-    "Senior software engineer focused on applied AI: putting LLMs into production, researching what works, and " +
-    "teaching teams to use them well. Builds Claude workflows and Amazon Bedrock integrations at ServicePros, and " +
-    "independently fine-tunes open-weight models and builds datasets, published on Hugging Face. Background in " +
+    "AI engineer focused on putting LLMs into production, researching what works, and teaching teams to use them " +
+    "well. Builds Claude workflows and Amazon Bedrock integrations at ServicePros, and independently fine-tunes " +
+    "open-weight models and builds datasets, published on Hugging Face. Brings 7 years of software engineering in " +
     "Ruby on Rails, Go, and Rust, after 10+ years in systems administration and DevOps.",
 
   experience: [
     {
-      title: "Senior Software Engineer, AI",
+      title: "AI Engineer",
       company: "ServicePros Installation Group",
       start: "May 2025",
       end: "Present",
