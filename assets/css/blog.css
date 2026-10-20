@@ -39,15 +39,16 @@
   gap: 0.6rem;
   padding: 0.55rem 0.95rem;
   border: 1px solid var(--rule-strong);
-  border-radius: 999px;
+  border-radius: var(--radius);
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   text-decoration: none;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tag-cloud a:hover {
-  border-color: var(--accent-ink);
+  border-color: var(--accent);
+  box-shadow: 0 0 1rem rgb(0 229 255 / 0.2);
 }
 
 .tag-count {
@@ -85,10 +86,10 @@
 
 .post-header h1 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 500;
   font-size: clamp(2.5rem, 1.5rem + 4vw, 4.75rem);
   line-height: 1;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.03em;
   text-wrap: balance;
 }
 
@@ -126,8 +127,8 @@
 .post-featured-image img {
   width: 100%;
   height: auto;
-  border: 1px solid var(--rule);
-  border-radius: 6px;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
 }
 
 .post-content {
@@ -145,9 +146,9 @@
 .post-content h2 {
   margin-top: 3.5rem;
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.1;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
@@ -204,15 +205,18 @@
 
 .post-content blockquote {
   padding-left: 1.25rem;
-  border-left: 2px solid var(--accent);
+  border-left: 2px solid var(--accent-2);
+  box-shadow: -0.5rem 0 1rem -0.75rem rgb(177 77 255 / 0.8);
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 1.5rem;
   line-height: 1.35;
+  letter-spacing: -0.01em;
   color: var(--fg-2);
 }
 
 .post-content img {
-  border-radius: 6px;
+  border-radius: var(--radius);
 }
 
 .post-content table {
@@ -261,31 +265,101 @@
 
 .post-content :not(pre) > code {
   padding: 0.15em 0.4em;
-  border-radius: 4px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
   background: var(--bg-2);
+  color: var(--accent-2-ink);
   font-family: var(--font-mono);
   font-size: 0.85em;
 }
 
-/* Matches the Prism "tomorrow" theme, so code stays readable if the CDN theme fails to load. */
-.post-content pre[class*="language-"],
 .post-content pre {
-  background: #2d2d2d;
-  color: #ccc;
   margin-block: 2rem;
   padding: 1.25rem 1.4rem;
-  border-radius: 8px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: #06070f;
+  color: #c9d2e8;
   overflow-x: auto;
   font-size: 0.875rem;
   line-height: 1.65;
+  tab-size: 4;
+  hyphens: none;
 }
 
 .post-content pre code {
   font-family: var(--font-mono);
 }
 
+/* Syntax colors for Prism's tokens, in the site's neon. */
+.post-content .token.comment,
+.post-content .token.prolog,
+.post-content .token.doctype,
+.post-content .token.cdata {
+  color: #77819e;
+  font-style: italic;
+}
+
+.post-content .token.punctuation {
+  color: #8f9ab6;
+}
+
+.post-content .token.keyword,
+.post-content .token.selector,
+.post-content .token.atrule,
+.post-content .token.important {
+  color: #c793ff;
+}
+
+.post-content .token.function,
+.post-content .token.macro,
+.post-content .token.operator {
+  color: #5eebff;
+}
+
+.post-content .token.class-name,
+.post-content .token.builtin,
+.post-content .token.namespace,
+.post-content .token.tag {
+  color: #82a8ff;
+}
+
+.post-content .token.string,
+.post-content .token.char,
+.post-content .token.attr-value,
+.post-content .token.regex,
+.post-content .token.inserted {
+  color: #7df0c5;
+}
+
+.post-content .token.number,
+.post-content .token.boolean,
+.post-content .token.constant,
+.post-content .token.symbol,
+.post-content .token.lifetime-annotation {
+  color: #ff8fd2;
+}
+
+.post-content .token.attr-name,
+.post-content .token.property,
+.post-content .token.variable {
+  color: #a9b8ff;
+}
+
+.post-content .token.deleted {
+  color: var(--danger);
+}
+
+.post-content .token.important,
+.post-content .token.bold {
+  font-weight: 600;
+}
+
+.post-content .token.italic {
+  font-style: italic;
+}
+
 @media (min-width: 900px) {
-  .post-content pre[class*="language-"],
   .post-content pre {
     margin-inline: -1.4rem;
   }
@@ -315,8 +389,10 @@
 
 .related-title {
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 1.5rem;
   line-height: 1.15;
+  letter-spacing: -0.015em;
 }
 
 .related-desc {
@@ -339,8 +415,10 @@
   gap: 0.4rem;
   align-content: start;
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 1.375rem;
   line-height: 1.15;
+  letter-spacing: -0.015em;
   text-decoration: none;
 }
 
@@ -361,5 +439,17 @@
 
   .next-post {
     text-align: left;
+  }
+}
+
+@media print {
+  .post-content pre {
+    background: var(--bg-2);
+    color: var(--fg);
+  }
+
+  /* The neon token colors wash out on paper. */
+  .post-content .token {
+    color: inherit !important;
   }
 }

@@ -23,15 +23,13 @@
     <meta name="twitter:title" content="{{ pageTitle | safe }}">
     <meta name="twitter:description" content="{{ pageDescription | safe }}">
 
-    <meta name="color-scheme" content="light dark">
-    <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#11110f" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#090b16">
     <link rel="icon" href="/images/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,400..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    {% if layout == 'post.njk' %}<link href="https://unpkg.com/prismjs@1.30.0/themes/prism-tomorrow.min.css" rel="stylesheet">{% endif %}
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600&family=Inter:opsz,wght@14..32,400..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/blog.css">
     {%- for href in styles %}

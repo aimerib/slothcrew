@@ -75,11 +75,11 @@
    The sheet
    ------------------------------------------------------------ */
 .resume {
-  --r-ink: #141413;
-  --r-muted: #4a4945;
-  --r-faint: #77756f;
-  --r-rule: rgb(20 20 19 / 0.16);
-  --r-accent: #b33a17;
+  --r-ink: #10121a;
+  --r-muted: #464b5b;
+  --r-faint: #737a8d;
+  --r-rule: rgb(16 18 26 / 0.16);
+  --r-accent: #5b21b6;
 
   width: min(100% - 2 * var(--gutter), 8.5in);
   margin-inline: auto;
@@ -87,7 +87,7 @@
   border-radius: 4px;
   background: #fff;
   color: var(--r-ink);
-  box-shadow: 0 1px 2px rgb(0 0 0 / 0.06), 0 14px 40px rgb(0 0 0 / 0.08);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.06), 0 20px 60px rgb(0 0 0 / 0.5), 0 0 6rem rgb(177 77 255 / 0.12);
   font-family: 'Resume Sans', Arial, Helvetica, sans-serif;
   font-size: 9.3pt;
   line-height: 1.33;
@@ -98,14 +98,8 @@
   color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  .resume {
-    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.06), 0 20px 60px rgb(0 0 0 / 0.5);
-  }
-}
-
 .resume ::selection {
-  background: #f3c9bb;
+  background: #ddd0ff;
   color: var(--r-ink);
 }
 
