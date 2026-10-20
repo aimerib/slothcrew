@@ -1,49 +1,20 @@
 ---
 layout: base.njk
-title: Tags
+title: Topics
 permalink: /blog/tags/
 ---
 
-<div class="blog-index">
-    <div class="container">
-        <header class="page-header">
-            <h1>Tags</h1>
-            <p class="description">Browse posts by topic</p>
-        </header>
+<div class="container">
+    <header class="page-header">
+        <h1>Topics.</h1>
+        <p class="description">Browse posts by topic.</p>
+    </header>
 
-        <div class="tags-list">
-            {% for tag in collections.tagList %}
-                <a href="/blog/tags/{{ tag | slug }}/" class="tag-large">
-                    {{ tag }} ({{ collections[tag].length }})
-                </a>
-            {% endfor %}
-        </div>
-    </div>
+    <ul class="tag-cloud">
+        {% for tag in collections.tagList %}
+        <li>
+            <a href="/blog/tags/{{ tag | slug }}/">{{ tag }}<span class="tag-count">{{ collections[tag].length }}</span></a>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
-
-<style>
-    .tags-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.5rem;
-        margin-bottom: 5rem;
-    }
-    
-    .tag-large {
-        display: inline-block;
-        padding: 1rem 2rem;
-        background-color: var(--color-dark-3);
-        color: var(--color-light);
-        border-radius: 8px;
-        font-size: 1.6rem;
-        transition: var(--transition);
-        box-shadow: var(--shadow);
-        text-decoration: none;
-    }
-    
-    .tag-large:hover {
-        background-color: var(--color-primary);
-        transform: translateY(-5px);
-        box-shadow: var(--glow);
-    }
-</style> 

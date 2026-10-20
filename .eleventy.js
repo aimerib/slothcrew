@@ -28,7 +28,6 @@ export default function(eleventyConfig) {
 	})
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("images");
-  eleventyConfig.addPassthroughCopy("noir");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy({"game/": "assets/js/"});
 
@@ -63,6 +62,8 @@ export default function(eleventyConfig) {
     return [...tagSet].sort();
   });
   
+  eleventyConfig.addShortcode("year", () => String(new Date().getFullYear()));
+
   eleventyConfig.addFilter("formatDate", function(dateObj) {
     if (typeof dateObj === 'string') {
       dateObj = new Date(dateObj);

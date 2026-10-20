@@ -1,290 +1,369 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: base.njk
+bodyClass: home
+---
+{% from "post-list.njk" import postList %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Aimeri Baddouh | Senior Software Engineer</title>
-    <link rel="icon" href="images/favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-
-<body>
-    <div class="noise-overlay"></div>
-    <header class="nav-header">
-        <nav class="container">
-            <div class="logo">
-                <a href="#home">AB</a>
+<section class="hero" aria-labelledby="hero-title">
+    <div class="container">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Senior software engineer at ServicePros</p>
+        <h1 class="hero-title" id="hero-title">I build, research, and teach&nbsp;AI.<span class="cursor" aria-hidden="true"></span></h1>
+        <div class="hero-body">
+            <p class="lead">I'm back at ServicePros, this time focused on AI: putting it to work in production, finding
+                out what it can and can't do, and helping people use it well. Before that, over seven years of
+                full-stack and DevOps work in Rails, Go, and Rust.</p>
+            <div class="hero-actions">
+                <a class="button" href="#work">Selected work</a>
+                <a class="link-arrow" href="#contact">Get in touch <span aria-hidden="true">→</span></a>
             </div>
-            <div class="nav-links" id="nav-links">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#work" class="nav-link">Work</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <a href="blog" class="nav-link">Blog</a>
-                <a href="noir/index.html" class="nav-link nav-link-highlight">Photography</a>
+        </div>
+        <dl class="hero-facts">
+            <div>
+                <dt>Now</dt>
+                <dd>AI at ServicePros, since 2025</dd>
             </div>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header>
+            <div>
+                <dt>Before</dt>
+                <dd>Poll Everywhere, 2023–2025</dd>
+            </div>
+            <div>
+                <dt>On the side</dt>
+                <dd><a href="{{ site.social.huggingface }}">Open models &amp; datasets<span aria-hidden="true">&nbsp;↗</span></a></dd>
+            </div>
+            <div>
+                <dt>Also</dt>
+                <dd><a href="https://aimeribaddouh.com">Photography<span aria-hidden="true">&nbsp;↗</span></a></dd>
+            </div>
+        </dl>
+    </div>
+</section>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="glitch-text" data-text="Aimeri Baddouh">Aimeri Baddouh</h1>
-                    <h2 class="hero-subtitle">Senior Software Engineer</h2>
-                    <p class="hero-description">Building exceptional digital experiences with clean, efficient code.</p>
-                    <div class="hero-actions">
-                        <a href="#work" class="btn btn-primary">View My Work</a>
-                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+<section class="section" id="focus" aria-labelledby="focus-title">
+    <div class="container section-grid">
+        <p class="section-label"><span>01</span>Now</p>
+        <div class="section-main">
+            <h2 class="section-title" id="focus-title">Three sides of the same work.</h2>
+            <ol class="focus-grid">
+                <li class="focus-item" data-reveal>
+                    <span class="focus-num" aria-hidden="true">i.</span>
+                    <h3>Implementation</h3>
+                    <p>Taking AI from prototype to production: wiring models into real workflows, with the testing and
+                        monitoring that keep them dependable.</p>
+                </li>
+                <li class="focus-item" data-reveal>
+                    <span class="focus-num" aria-hidden="true">ii.</span>
+                    <h3>Research</h3>
+                    <p>Testing what current models can actually do on real problems, and separating what holds up from
+                        what only demos well.</p>
+                </li>
+                <li class="focus-item" data-reveal>
+                    <span class="focus-num" aria-hidden="true">iii.</span>
+                    <h3>Education</h3>
+                    <p>Helping people understand how these tools work, where they fail, and how to use them with good
+                        judgment.</p>
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="work" aria-labelledby="work-title">
+    <div class="container section-grid">
+        <p class="section-label"><span>02</span>Work</p>
+        <div class="section-main">
+            <h2 class="section-title" id="work-title">Selected work.</h2>
+            <p class="section-intro">Most of my AI work is public on Hugging Face: models and datasets. The names are
+                a little silly. The work is earnest.</p>
+
+            <div class="projects">
+                <article class="project" data-reveal>
+                    <div class="project-text">
+                        <p class="project-meta">Fine-tuning · CPT, SFT &amp; DPO · Open weights</p>
+                        <h3 class="project-title">SpoomplesMaxx models</h3>
+                        <p>A family of open-weight creative-writing and roleplay models, trained with continued
+                            pretraining, SFT, and DPO on Qwen, Gemma, Mistral, Granite, GLM, and Seed-OSS bases and
+                            released with GGUF and MLX quantizations. It includes Cardmaker, a full fine-tune of
+                            Ministral 3 14B that turns a one-line idea into a complete SillyTavern character card.</p>
+                        <ul class="project-links">
+                            <li><a class="link-arrow" href="https://huggingface.co/aimeri/spoomplesmaxx-thrasher-24B">Thrasher 24B <span aria-hidden="true">↗</span></a></li>
+                            <li><a class="link-arrow" href="https://huggingface.co/aimeri/spoomplesmaxx-cardmaker-v2">Cardmaker v2 <span aria-hidden="true">↗</span></a></li>
+                            <li><a class="link-arrow" href="{{ site.social.huggingface }}">All models <span aria-hidden="true">↗</span></a></li>
+                        </ul>
                     </div>
+                    <div class="project-spec">
+                        <p class="spec-figure">14K+</p>
+                        <p class="spec-caption">downloads of the most popular release, Thrasher 24B (GGUF)</p>
+                        <dl>
+                            <div><dt>Bases</dt><dd>Qwen · Gemma · Mistral · Granite · GLM · Seed-OSS</dd></div>
+                            <div><dt>Training</dt><dd>CPT → SFT → DPO</dd></div>
+                            <div><dt>Releases</dt><dd>Safetensors · GGUF · MLX</dd></div>
+                        </dl>
+                    </div>
+                </article>
+
+                <article class="project" data-reveal>
+                    <div class="project-text">
+                        <p class="project-meta">Datasets · Low-resource languages</p>
+                        <h3 class="project-title">Ticuna and Kichwa corpora</h3>
+                        <p>Data for two under-resourced languages of the Amazon. The Ticuna corpus combines parallel
+                            Ticuna–Spanish–Portuguese text, monolingual text, and a lexicon with the dictionary's tone
+                            notation, with the orthography tagged on every row. The Kichwa set consolidates and repairs
+                            three existing community uploads of a Napo Kichwa–Spanish dictionary into one documented,
+                            license-separated dataset.</p>
+                        <ul class="project-links">
+                            <li><a class="link-arrow" href="https://huggingface.co/datasets/aimeri/ticuna-spanish-portuguese">Ticuna corpus <span aria-hidden="true">↗</span></a></li>
+                            <li><a class="link-arrow" href="https://huggingface.co/datasets/aimeri/kichwa-spanish">Kichwa–Spanish <span aria-hidden="true">↗</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="project-spec">
+                        <p class="spec-figure">47K</p>
+                        <p class="spec-caption">Ticuna–Spanish–Portuguese parallel pairs</p>
+                        <dl>
+                            <div><dt>Ticuna (tca)</dt><dd>48K monolingual · 11.5K lexicon entries · 53K instructions</dd></div>
+                            <div><dt>Kichwa (qvo)</dt><dd>13.9K parallel pairs · 6.4K instructions</dd></div>
+                        </dl>
+                    </div>
+                </article>
+
+                <article class="project" data-reveal>
+                    <div class="project-text">
+                        <p class="project-meta">Datasets · One idea each</p>
+                        <h3 class="project-title">Training-data experiments</h3>
+                        <p>Small datasets that each test one idea about how data shapes a model. Olivia-Sys rewrites a
+                            chat dataset without the hedging, sycophantic assistant voice. repremover-xl puts
+                            supervision at the exact turn where a model starts repeating itself.</p>
+                        <ul class="project-links">
+                            <li><a class="link-arrow" href="https://huggingface.co/datasets/aimeri/Olivia-Sys">Olivia-Sys <span aria-hidden="true">↗</span></a></li>
+                            <li><a class="link-arrow" href="https://huggingface.co/datasets/aimeri/repremover-xl">repremover-xl <span aria-hidden="true">↗</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="project-spec">
+                        <dl>
+                            <div><dt>Olivia-Sys</dt><dd>3,886 conversations in a direct, less assistant-coded voice</dd></div>
+                            <div><dt>repremover-xl</dt><dd>7,281 conversations cut where the model looped, with a rewritten turn</dd></div>
+                        </dl>
+                    </div>
+                </article>
+
+                <article class="project" data-reveal>
+                    <div class="project-text">
+                        <p class="project-meta">Rust · WebAssembly · Game engine</p>
+                        <h3 class="project-title">Nightrunner Engine</h3>
+                        <p>A text-adventure engine library written in Rust. It handles parsing and game state for any
+                            front end, including the browser through WebAssembly, and is published on crates.io and
+                            npm. The demo on this site runs on it.</p>
+                        <ul class="project-links">
+                            <li><a class="link-arrow" href="/interactive-portfolio/">Play the demo <span aria-hidden="true">→</span></a></li>
+                            <li><a class="link-arrow" href="https://github.com/aimerib/nightrunner-lib">Source <span aria-hidden="true">↗</span></a></li>
+                            <li><a class="link-arrow" href="https://crates.io/crates/nightrunner_lib">crates.io <span aria-hidden="true">↗</span></a></li>
+                            <li><a class="link-arrow" href="https://www.npmjs.com/package/@nightrunner/nightrunner_lib">npm <span aria-hidden="true">↗</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="project-media">
+                        <img src="https://res.cloudinary.com/slothcrew/image/upload/f_auto,q_auto,c_limit,w_960/v1524112915/portfoliopics/nightrunner-lib.png"
+                            alt="Screenshot of a Nightrunner text adventure" loading="lazy" decoding="async">
+                    </div>
+                </article>
+            </div>
+
+            <div class="earlier">
+                <h3 class="subhead">Earlier</h3>
+                <ul class="earlier-list">
+                    <li>
+                        <a href="https://github.com/aimerib/nightrunner-editor">Nightrunner Editor<span aria-hidden="true">&nbsp;↗</span></a>
+                        <span>A retro-futuristic Tauri and React desktop app for writing Nightrunner games.</span>
+                    </li>
+                    <li>
+                        <a href="https://github.com/aimerib/puppeteer-gif-cast">Puppeteer GIF Cast<span aria-hidden="true">&nbsp;↗</span></a>
+                        <span>A Node.js library that records a website as it scrolls and turns it into a GIF.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <p class="section-more">
+                <a class="link-arrow" href="{{ site.social.huggingface }}">Hugging Face <span aria-hidden="true">↗</span></a>
+                <a class="link-arrow" href="{{ site.social.github }}">GitHub <span aria-hidden="true">↗</span></a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="about" aria-labelledby="about-title">
+    <div class="container section-grid">
+        <p class="section-label"><span>03</span>About</p>
+        <div class="section-main">
+            <h2 class="section-title" id="about-title">About.</h2>
+            <div class="about-intro">
+                <div class="about-bio">
+                    <p>I'm a senior software engineer with over seven years across DevOps and full-stack development,
+                        and these days most of it is pointed at AI. At ServicePros I work on bringing it into production,
+                        researching where it actually helps, and teaching people to use it well.</p>
+                    <p>Before coming back, I spent two years at Poll Everywhere designing presentation streaming with
+                        Playwright, FFmpeg, and Go, modernizing code-signing infrastructure, and building geolocation
+                        features. In my first stint at ServicePros I led the modernization of legacy systems and rebuilt
+                        the CI/CD pipelines.</p>
+                    <p>Outside work I train open models and build datasets, which I publish on
+                        <a href="{{ site.social.huggingface }}">Hugging Face</a>, and I keep working on
+                        <a href="https://github.com/aimerib/nightrunner-lib">Nightrunner</a>, a text-adventure engine in
+                        Rust. I also photograph people and products; that work lives at
+                        <a href="https://aimeribaddouh.com">aimeribaddouh.com</a>.</p>
                 </div>
+                <figure class="about-portrait">
+                    <img src="https://res.cloudinary.com/slothcrew/image/upload/f_auto,q_auto,c_limit,w_640/v1524433231/Slothcrew/profilepic.png"
+                        alt="Portrait of Aimeri Baddouh" loading="lazy" decoding="async">
+                </figure>
             </div>
-            <div class="hero-background">
-                <div class="gradient-circle circle-1"></div>
-                <div class="gradient-circle circle-2"></div>
-            </div>
-        </section>
 
-        <section id="work" class="work">
-            <div class="container">
-                <h2 class="section-title">Selected Work</h2>
-                <div class="work-grid">
-                    <div class="work-item">
-                        <div class="work-img">
-                            <img src="https://res.cloudinary.com/slothcrew/image/upload/f_auto,q_auto/v1524112915/portfoliopics/nightrunner-lib.png"
-                                alt="Nightrunner Engine">
-                            <div class="work-overlay">
-                                <div class="work-links">
-                                    <a href="https://github.com/aimerib/nightrunner-lib" target="_blank" rel="noopener"
-                                        aria-label="View Code on GitHub">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <div class="work-link-group">
-                                        <a href="/interactive-portfolio" aria-label="Try Interactive Demo">
-                                            <i class="fas fa-gamepad"></i>
-                                        </a>
-                                        <a class="work-link-text" href="/interactive-portfolio">Interactive Demo</a>
-                                    </div>
-                                </div>
+            <div class="about-columns">
+                <div>
+                    <h3 class="subhead">Experience</h3>
+                    <ol class="timeline">
+                        <li class="timeline-item is-current">
+                            <span class="timeline-date">2025 – Now</span>
+                            <div>
+                                <h4>ServicePros Installation Group</h4>
+                                <p class="timeline-role">AI implementation, research &amp; education</p>
+                                <p>Building Claude workflows for the team, using Amazon Bedrock to bring AI into complex
+                                    processes like contract verification, and rolling out vendor AI tools that integrate
+                                    deeply with our chat, inventory, and scheduling systems. Also teaching the team to use
+                                    all of it well.</p>
                             </div>
-                        </div>
-                        <h3 class="work-title">Nightrunner Engine</h3>
-                        <p class="work-description">A powerful text-adventure game engine library built in Rust.
-                            Provides parsing functionality that can be used with any front-end, including WebAssembly
-                            support.</p>
-                        <div class="work-tags">
-                            <span class="tag">Rust</span>
-                            <span class="tag">WebAssembly</span>
-                            <span class="tag">Game Engine</span>
-                        </div>
-                    </div>
-
-                    <div class="work-item">
-                        <div class="work-img">
-                            <img src="https://res.cloudinary.com/slothcrew/image/upload/f_auto,q_auto/v1524112915/portfoliopics/nightrunner-editor.png"
-                                alt="Nightrunner Editor">
-                            <div class="work-overlay">
-                                <div class="work-links">
-                                    <a href="https://github.com/aimerib/nightrunner-editor" target="_blank"
-                                        rel="noopener" aria-label="View Code on GitHub">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <h3 class="work-title">Nightrunner Editor</h3>
-                        <p class="work-description">A retro-futuristic desktop application built with Tauri and React
-                            for creating interactive fiction games powered by the Nightrunner Engine.</p>
-                        <div class="work-tags">
-                            <span class="tag">Tauri</span>
-                            <span class="tag">React</span>
-                            <span class="tag">Rust</span>
-                            <span class="tag">Desktop App</span>
-                        </div>
-                    </div>
-
-                    <div class="work-item">
-                        <div class="work-img">
-                            <img src="https://raw.githubusercontent.com/aimerib/aimerib.github.io/master/images/every-last-drop.gif"
-                                alt="Puppeteer GIF Cast">
-                            <div class="work-overlay">
-                                <div class="work-links">
-                                    <a href="https://github.com/aimerib/puppeteer-gif-cast" target="_blank"
-                                        rel="noopener" aria-label="View Code on GitHub">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <h3 class="work-title">Puppeteer GIF Cast</h3>
-                        <p class="work-description">Node.js library that generates animated GIFs of website scrolling.
-                            Useful for documentation and demos.</p>
-                        <div class="work-tags">
-                            <span class="tag">Node.js</span>
-                            <span class="tag">Puppeteer</span>
-                            <span class="tag">Open Source</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="work-cta">
-                    <a href="https://github.com/aimerib" target="_blank" rel="noopener" class="btn btn-outline">
-                        <i class="fab fa-github"></i> See More on GitHub
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="about">
-            <div class="container">
-                <div class="about-grid">
-                    <div class="about-image">
-                        <img src="https://res.cloudinary.com/slothcrew/image/upload/f_auto,q_auto/v1524433231/Slothcrew/profilepic.png"
-                            alt="Aimeri Baddouh" class="about-portrait">
-                        <div class="about-shape"></div>
-                    </div>
-                    <div class="about-content">
-                        <h2 class="section-title">About Me</h2>
-                        <p>Senior Software Engineer with over 7 years of experience across DevOps and full-stack
-                            development. I excel in building scalable applications, optimizing infrastructure, and
-                            mentoring junior developers. My expertise lies at the intersection of frontend innovation
-                            and backend robustness, with a focus on performance and accessibility.</p>
-                        <p>At Poll Everywhere, I designed streaming solutions using Playwright, FFmpeg, and Go, while
-                            modernizing code-signing infrastructure and implementing complex geolocation features.
-                            Previously at ServicePros, I led modernization efforts for legacy systems and established
-                            efficient CI/CD pipelines.</p>
-                        <p>I'm passionate about creating elegant solutions to complex problems and enjoy contributing to
-                            open source projects like my text adventure framework, Nightrunner.</p>
-                        <div class="skills">
-                            <h3>Technical Skills</h3>
-                            <div class="skill-tags">
-                                <span class="tag">Ruby/Rails</span>
-                                <span class="tag">JavaScript/TypeScript</span>
-                                <span class="tag">React</span>
-                                <span class="tag">CSS/SCSS</span>
-                                <span class="tag">DevOps</span>
-                                <span class="tag">Go</span>
-                                <span class="tag">Rust</span>
-                                <span class="tag">Elixir/Phoenix</span>
-                                <span class="tag">Hotwire/Stimulus</span>
-                                <span class="tag">Docker</span>
-                                <span class="tag">AWS</span>
-                                <span class="tag">CI/CD</span>
-                                <span class="tag">Accessibility</span>
-                                <span class="tag">API Design</span>
-                                <span class="tag">UI/UX Design</span>
-                            </div>
-                        </div>
-                        <div class="work-history">
-                            <h3>Recent Experience</h3>
-                            <div class="experience-item">
-                                <div class="experience-header">
-                                    <h4>Poll Everywhere</h4>
-                                    <span class="experience-date">2023 - 2025</span>
-                                </div>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="timeline-date">2023 – 2025</span>
+                            <div>
+                                <h4>Poll Everywhere</h4>
                                 <p>Led development of presentation streaming solutions, implemented geolocation
                                     features, and mentored junior developers on modern Rails patterns and API best
                                     practices.</p>
                             </div>
-                            <div class="experience-item">
-                                <div class="experience-header">
-                                    <h4>ServicePros Installation Group</h4>
-                                    <span class="experience-date">2019 - 2023</span>
-                                </div>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="timeline-date">2019 – 2023</span>
+                            <div>
+                                <h4>ServicePros Installation Group</h4>
                                 <p>Overhauled CI/CD pipelines, upgraded legacy code to modern standards, and integrated
-                                    third-party tools including APM monitoring, Google Maps, and OAuth authentication
-                                    systems.</p>
+                                    third-party tools including APM monitoring, Google Maps, and OAuth
+                                    authentication.</p>
                             </div>
-                        </div>
-                    </div>
+                        </li>
+                    </ol>
                 </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2 class="section-title">Get in Touch</h2>
-                <p class="contact-intro">Interested in working together? Fill out the form below, and I'll get back to
-                    you promptly.</p>
-
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <div class="contact-method">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h3>Email</h3>
-                                <a href="mailto:aimeri@baddouh.com">aimeri@baddouh.com</a>
-                            </div>
+                <div>
+                    <h3 class="subhead">Toolbox</h3>
+                    <dl class="toolbox">
+                        <div>
+                            <dt>AI platforms</dt>
+                            <dd>Claude, Amazon Bedrock, Hugging Face</dd>
                         </div>
-                        <div class="contact-method">
-                            <i class="fab fa-github"></i>
-                            <div>
-                                <h3>GitHub</h3>
-                                <a href="https://github.com/aimerib" target="_blank"
-                                    rel="noopener">github.com/aimerib</a>
-                            </div>
+                        <div>
+                            <dt>Model training</dt>
+                            <dd>Transformers, TRL, Unsloth, Axolotl, PEFT &amp; LoRA</dd>
                         </div>
-                    </div>
-
-                    <form class="contact-form" netlify name="portfolio-contact" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                        <div>
+                            <dt>Inference</dt>
+                            <dd>vLLM, llama.cpp (GGUF), MLX</dd>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                        <div>
+                            <dt>Languages</dt>
+                            <dd>Python, Ruby, JavaScript, TypeScript, Go, Rust, Elixir</dd>
                         </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
+                        <div>
+                            <dt>Web</dt>
+                            <dd>Rails, Hotwire &amp; Stimulus, React, Phoenix, CSS &amp; SCSS</dd>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                        <div>
+                            <dt>Infrastructure</dt>
+                            <dd>Docker, AWS, CI/CD, GPU training on RunPod and Vast.ai</dd>
                         </div>
-                        <div data-netlify-recaptcha></div>
-                        <button type="submit" class="btn btn-primary">
-                            Send Message
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">AB</div>
-                <p>© 2025 Aimeri Baddouh. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="https://github.com/aimerib" target="_blank" rel="noopener" aria-label="GitHub Profile">
-                        <i class="fab fa-github"></i>
-                    </a>
+                        <div>
+                            <dt>Craft</dt>
+                            <dd>API design, accessibility, UI/UX design</dd>
+                        </div>
+                    </dl>
                 </div>
             </div>
         </div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-        <i class="fas fa-arrow-up"></i>
     </div>
+</section>
 
-    <script type="module" src="assets/js/main.js"></script>
-</body>
+<section class="section" id="writing" aria-labelledby="writing-title">
+    <div class="container section-grid">
+        <p class="section-label"><span>04</span>Writing</p>
+        <div class="section-main">
+            <h2 class="section-title" id="writing-title">Writing.</h2>
+            <p class="section-intro">Notes on software architecture, game engines, and whatever I'm building.</p>
+            {{ postList(collections.posts.slice(0, 3)) }}
+            <p class="section-more"><a class="link-arrow" href="/blog/">All writing <span aria-hidden="true">→</span></a></p>
+        </div>
+    </div>
+</section>
 
-</html>
+<section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="container section-grid">
+        <p class="section-label"><span>05</span>Contact</p>
+        <div class="section-main">
+            <h2 class="section-title" id="contact-title">Get in touch.</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <p class="contact-lede">Interested in working together, or want to talk about AI? Send a note
+                        and I'll get back to you promptly.</p>
+                    <dl class="contact-list">
+                        <div>
+                            <dt>Email</dt>
+                            <dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
+                        </div>
+                        <div>
+                            <dt>GitHub</dt>
+                            <dd><a href="{{ site.social.github }}">github.com/aimerib</a></dd>
+                        </div>
+                        <div>
+                            <dt>Hugging Face</dt>
+                            <dd><a href="{{ site.social.huggingface }}">huggingface.co/aimeri</a></dd>
+                        </div>
+                        <div>
+                            <dt>LinkedIn</dt>
+                            <dd><a href="{{ site.social.linkedin }}">in/aimeri-baddouh</a></dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <form class="contact-form" netlify name="portfolio-contact" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" autocomplete="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" autocomplete="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <div data-netlify-recaptcha></div>
+                    <button type="submit" class="button">Send message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Aimeri Baddouh",
+  "url": "{{ site.url }}/",
+  "jobTitle": "Senior Software Engineer",
+  "worksFor": { "@type": "Organization", "name": "ServicePros Installation Group" },
+  "knowsAbout": ["Artificial intelligence", "Large language models", "Fine-tuning", "Software engineering", "Ruby on Rails", "Rust", "DevOps"],
+  "sameAs": ["{{ site.social.github }}", "{{ site.social.huggingface }}", "{{ site.social.linkedin }}", "https://aimeribaddouh.com"]
+}
+</script>
