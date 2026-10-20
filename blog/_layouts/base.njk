@@ -34,6 +34,9 @@
     {% if layout == 'post.njk' %}<link href="https://unpkg.com/prismjs@1.30.0/themes/prism-tomorrow.min.css" rel="stylesheet">{% endif %}
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/blog.css">
+    {%- for href in styles %}
+    <link rel="stylesheet" href="{{ href }}">
+    {%- endfor %}
     <script>document.documentElement.classList.add('js');</script>
 </head>
 <body id="top" class="{{ bodyClass }}">
@@ -51,6 +54,7 @@
                     <li><a href="/#work">Work</a></li>
                     <li><a href="/#about">About</a></li>
                     <li><a href="/blog/"{% if page.url.startsWith('/blog') %} aria-current="page"{% endif %}>Writing</a></li>
+                    <li><a href="/resume/"{% if page.url.startsWith('/resume') %} aria-current="page"{% endif %}>Resume</a></li>
                     <li><a href="/#contact">Contact</a></li>
                     <li><a href="https://aimeribaddouh.com" class="nav-external">Photography<span aria-hidden="true">&nbsp;↗</span></a></li>
                 </ul>
@@ -66,6 +70,7 @@
         <div class="container footer-inner">
             <p class="footer-copy">&copy; {% year %} {{ site.author }}</p>
             <ul class="footer-links">
+                <li><a href="/resume/">Resume</a></li>
                 <li><a href="{{ site.social.github }}">GitHub<span aria-hidden="true">&nbsp;↗</span></a></li>
                 <li><a href="{{ site.social.huggingface }}">Hugging Face<span aria-hidden="true">&nbsp;↗</span></a></li>
                 <li><a href="{{ site.social.linkedin }}">LinkedIn<span aria-hidden="true">&nbsp;↗</span></a></li>

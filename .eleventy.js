@@ -28,7 +28,11 @@ export default function(eleventyConfig) {
 	})
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("images");
-  eleventyConfig.addPassthroughCopy("robots.txt");
+  // Vite copies its publicDir (public/ inside the Eleventy output) to the site
+  // root as-is. Files that no page references must go through it, or the Vite
+  // build drops them.
+  eleventyConfig.addPassthroughCopy({ "robots.txt": "public/robots.txt" });
+  eleventyConfig.addPassthroughCopy({ "resume/aimeri-baddouh-resume.pdf": "public/resume/aimeri-baddouh-resume.pdf" });
   eleventyConfig.addPassthroughCopy({"game/": "assets/js/"});
 
   eleventyConfig.setServerOptions({
